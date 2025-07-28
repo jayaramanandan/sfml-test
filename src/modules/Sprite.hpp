@@ -3,16 +3,19 @@
 #ifndef SPRITE_H
 #define SPRITE_H
 
-namespace Maker {
+namespace maker {
     class Sprite {
         private:
-            sf::Texture texture;
+            std::string texturePath;
             sf::Sprite sprite;
 
         public:
             Sprite(const std::string& textureFilePath);
-            void setRect(const sf::Vector2u& startingPos, const sf::Vector2u& size) const;
-            void setSize(const sf::Vector2f& sizeVector) const;
+            std::string getTexturePath() const;
+            sf::Sprite getSfSprite() const;
+            void setRect(const sf::Vector2u& startingPos, const sf::Vector2u& size);
+            void setSize(const sf::Vector2f& sizeVector);
+            void setSpriteTexture(const sf::Texture& texture);
     };
 }
 
