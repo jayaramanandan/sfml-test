@@ -21,7 +21,7 @@ void maker::Game::addSprite(maker::Sprite& sprite) {
     this->sprites.push_back(sprite);
 }
 
-void maker::Game::run(const std::string& windowTitle, const int& width, const int& height) const {
+void maker::Game::run(const std::string& windowTitle, const int& width, const int& height) {
     sf::RenderWindow window(sf::VideoMode(width, height), windowTitle);
 
     while (window.isOpen()) {
@@ -31,9 +31,16 @@ void maker::Game::run(const std::string& windowTitle, const int& width, const in
                 window.close();
         }
 
-        std::vector<maker::Sprite>::iterator sprite_ptr;
-        for (auto sprite_ptr = this->sprites.begin(); sprite_ptr != this->sprites.end(); ++sprite_ptr) {
-            window.draw(sprite_ptr->getSfSprite());
+        // updates
+        for(auto& sprite : this->sprites) {
+            sprite.update();
+        }
+
+        window.clear();
+
+        // draw
+        for(auto& sprite : this->sprites) {
+            window.draw(sprite.getSfSprite());
         }
 
         window.display();

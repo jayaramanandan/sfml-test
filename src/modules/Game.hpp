@@ -15,7 +15,7 @@ namespace maker {
 
         public:
             void addSprite(maker::Sprite& sprite);
-            void run(const std::string& windowTitle, const int& width, const int& height) const;
+            void run(const std::string& windowTitle, const int& width, const int& height);
     };
 }
 
