@@ -1,3 +1,5 @@
+sudo apt-get update
+sudo apt-get install libsfml-dev
 mkdir -p ~/setup-display && cd ~/setup-display
 cat > docker-compose.yml <<EOF
 services:
