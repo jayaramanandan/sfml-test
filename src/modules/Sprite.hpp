@@ -12,6 +12,7 @@ namespace maker {
             std::string texturePath;
             sf::Sprite sprite;
             std::unordered_map<std::string, std::vector<sf::IntRect>> animations;
+            std::unordered_map<std::string, sf::Clock> animationClocks;
 
         public:
             Sprite(const std::string& textureFilePath);
@@ -21,20 +22,15 @@ namespace maker {
 
             void setSize(const float x, const float y);
             void setPosition(const float x, const float y);
-            void playAnimation(std::string animationName, int speed);
+            void playAnimation(const std::string animationName, const float speed);
+            void playAnimation(const std::string animationName);
             void setSpriteTexture(const sf::Texture& texture);
             void addAnimation(const std::string name, const int frames[][2], const int framesLength, const int frameSize[2]);
             void addAnimation(const std::string name, const int frames[][4], const int framesLength);
 
+            void init();
             void update(); // where update code goes
     };
 }
-
-/*
-{
-    {death, {}}
-    {walkLeft, {{0, 0}, {64, 0}, {128, 0}}}
-}
-*/
 
 #endif

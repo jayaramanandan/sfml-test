@@ -16,7 +16,7 @@ void maker::Game::addSprite(maker::Sprite& sprite) {
         this->textures.insert({texturePath, spriteTexture});
         
     }
-
+    
     sprite.setSpriteTexture(this->textures.at(texturePath));
     this->sprites.push_back(sprite);
 }

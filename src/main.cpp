@@ -4,8 +4,16 @@
 #include "modules/Game.hpp"
 #include "modules/Sprite.hpp"
 
+void maker::Sprite::init() {
+    this->animationClocks.at("idle").restart();
+}
+
 void maker::Sprite::update() {
-    this->playAnimation("idle", 2);
+    this->playAnimation("idle", 1);
+
+    // if (this->waited(5)) {cout<<"hi"}
+
+    // if (this->waited(2)) {cout<<"ok"}
 
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
         std::cout << "hello" << std::endl;
@@ -17,7 +25,6 @@ int main() {
     const int size[2] = {16, 16};
     const int frames[4][2] = {{0, 0}, {16, 0}, {32, 0}, {48, 0}};
     sprite.addAnimation("idle", frames, 4, size);
-    sprite.playAnimation("idle", 2);
     sprite.setSize(10.0f, 10.0f);
     sprite.setPosition(200.0f, 200.0f);
 
