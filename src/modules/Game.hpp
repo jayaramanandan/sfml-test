@@ -1,5 +1,6 @@
 #include <unordered_map>
 #include <vector>
+#include <memory>
 #include <SFML/Graphics.hpp>
 #include "Sprite.hpp"
 
@@ -11,10 +12,11 @@ namespace maker {
         private:
             sf::RenderWindow window;
             std::unordered_map<std::string, sf::Texture> textures;
-            std::vector<maker::Sprite> sprites;
+            std::vector<std::unique_ptr<maker::Sprite>> sprites;
 
         public:
-            void addSprite(maker::Sprite& sprite);
+            void addSprite(std::unique_ptr<maker::Sprite> sprite_ptr);
+            void addSpriteTexture(const std::unique_ptr<maker::Sprite>& sprite_ptr);
             void run(const std::string& windowTitle, const int& width, const int& height);
     };
 }
