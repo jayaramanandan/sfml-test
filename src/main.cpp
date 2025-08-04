@@ -8,7 +8,7 @@
 #include "Player.hpp"
 
 int main() {
-    maker::Game game;
+    builder::Game game;
     game.addSprite(std::make_unique<Player>());
     game.run("Bowl Catch", 800, 600);
 

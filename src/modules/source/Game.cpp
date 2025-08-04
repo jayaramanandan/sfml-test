@@ -1,14 +1,12 @@
-#include <iostream>
-#include <vector>
-#include <SFML/Graphics.hpp>
 #include "../Game.hpp"
-#include "../../Player.hpp"
 
-void maker::Game::addSprite(std::unique_ptr<maker::Sprite> sprite_ptr) {
+#include <iostream>
+
+void builder::Game::addSprite(std::unique_ptr<builder::Sprite> sprite_ptr) {
     this->sprites.push_back(std::move(sprite_ptr));
 }
 
-void maker::Game::addSpriteTexture(const std::unique_ptr<maker::Sprite>& sprite_ptr) {
+void builder::Game::addSpriteTexture(const std::unique_ptr<builder::Sprite>& sprite_ptr) {
     std::string texturePath = sprite_ptr->getTexturePath();
 
     if(this->textures.find(texturePath) == this->textures.end()) { // checks to see if the texture path has already been stored
@@ -22,16 +20,18 @@ void maker::Game::addSpriteTexture(const std::unique_ptr<maker::Sprite>& sprite_
         
     }
 
-    sprite_ptr->setSpriteTexture(this->textures.at(texturePath));
+    sprite_ptr->getSfSprite()->setTexture(this->textures.at(texturePath));
 }
 
-void maker::Game::run(const std::string& windowTitle, const int& width, const int& height) {
+void builder::Game::run(const std::string& windowTitle, const int& width, const int& height) {
     sf::RenderWindow window(sf::VideoMode(width, height), windowTitle);
 
     // initialise sprites
     for(auto& sprite_ptr : this->sprites) {
         sprite_ptr->init();
+
         this->addSpriteTexture(std::move(sprite_ptr));
+
         sprite_ptr->startAnimationClocks();
     }
     
@@ -52,7 +52,7 @@ void maker::Game::run(const std::string& windowTitle, const int& width, const in
 
         // draw
         for(auto& sprite_ptr : this->sprites) {
-            window.draw(sprite_ptr->getSfSprite());
+            window.draw(*sprite_ptr->getSfSprite());
         }
 
         window.display();

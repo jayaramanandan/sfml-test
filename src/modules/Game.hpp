@@ -1,3 +1,4 @@
+#include <iostream>
 #include <unordered_map>
 #include <vector>
 #include <memory>
@@ -7,16 +8,16 @@
 #ifndef GAME_H
 #define GAME_H
 
-namespace maker {
+namespace builder {
     class Game {
         private:
             sf::RenderWindow window;
             std::unordered_map<std::string, sf::Texture> textures;
-            std::vector<std::unique_ptr<maker::Sprite>> sprites;
+            std::vector<std::unique_ptr<builder::Sprite>> sprites;
 
         public:
-            void addSprite(std::unique_ptr<maker::Sprite> sprite_ptr);
-            void addSpriteTexture(const std::unique_ptr<maker::Sprite>& sprite_ptr);
+            void addSprite(std::unique_ptr<builder::Sprite> sprite_ptr);
+            void addSpriteTexture(const std::unique_ptr<builder::Sprite>& sprite_ptr);
             void run(const std::string& windowTitle, const int& width, const int& height);
     };
 }
