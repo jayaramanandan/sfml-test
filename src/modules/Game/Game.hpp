@@ -3,7 +3,7 @@
 #include <vector>
 #include <memory>
 #include <SFML/Graphics.hpp>
-#include "Sprite.hpp"
+#include "../Sprite/Sprite.hpp"
 
 #ifndef GAME_H
 #define GAME_H

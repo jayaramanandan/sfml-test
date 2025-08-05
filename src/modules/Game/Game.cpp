@@ -1,4 +1,4 @@
-#include "../Game.hpp"
+#include "Game.hpp"
 
 void builder::Game::addSprite(std::unique_ptr<builder::Sprite> sprite_ptr) {
     this->sprites.push_back(std::move(sprite_ptr));

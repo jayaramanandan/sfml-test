@@ -4,7 +4,7 @@
 #include <memory>
 #include <SFML/Graphics.hpp>
 
-#include "modules/Game.hpp"
+#include "modules/Game/Game.hpp"
 #include "Player.hpp"
 
 int main() {

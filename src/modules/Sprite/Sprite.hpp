@@ -1,10 +1,9 @@
-#include <iostream>
 #include <unordered_map>
 #include <vector>
 #include <string>
 #include <cmath>
 #include <SFML/Graphics.hpp>
-#include "Animator.hpp"
+#include "../Animator/Animator.hpp"
 
 #ifndef SPRITE_H
 #define SPRITE_H

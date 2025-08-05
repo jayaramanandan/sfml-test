@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "modules/Sprite.hpp"
+#include "modules/Sprite/Sprite.hpp"
 
 #ifndef PLAYER_H
 #define PLAYER_H
