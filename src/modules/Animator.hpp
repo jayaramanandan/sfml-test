@@ -18,6 +18,7 @@ namespace builder {
             std::unordered_map<std::string, builder::Animation> animations;
         
         public:
+            Animator();
             virtual sf::Sprite* getSfSprite() = 0;
             
             void startAnimation(const std::string& animationName);

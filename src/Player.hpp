@@ -5,9 +5,12 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-class Player : public builder::Sprite {
+class Player : public builder::Sprite, public builder::Animator {
     public:
-        void init() override;
+        Player();
+
+        sf::Sprite* getSfSprite() override;
+        
         void update() override;
 };
 

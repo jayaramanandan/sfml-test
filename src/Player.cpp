@@ -1,6 +1,6 @@
 #include "Player.hpp"
 
-void Player::init() {
+Player::Player() {
     this->setTexturePath("/workspaces/sfml-test/build/assets/Bowl.png");
     
     const int size[2] = {16, 16};
@@ -9,6 +9,10 @@ void Player::init() {
 
     this->setSize(10.0f, 10.0f);
     this->setPosition(200.0f, 200.0f);
+}
+
+sf::Sprite* Player::getSfSprite() {
+    return Sprite::getSfSprite();
 }
 
 void Player::update() {

@@ -1,5 +1,9 @@
 #include "../Animator.hpp"
 
+builder::Animator::Animator() {
+    this->startAnimationClocks();
+}
+
 void builder::Animator::startAnimation(const std::string& animationName) {
     this->getSfSprite()->setTextureRect(this->animations.at(animationName).frames[0]);
 }

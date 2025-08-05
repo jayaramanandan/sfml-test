@@ -26,11 +26,7 @@ void builder::Game::run(const std::string& windowTitle, const int& width, const 
 
     // initialise sprites
     for(auto& sprite_ptr : this->sprites) {
-        sprite_ptr->init();
-
         this->addSpriteTexture(std::move(sprite_ptr));
-
-        sprite_ptr->startAnimationClocks();
     }
     
 

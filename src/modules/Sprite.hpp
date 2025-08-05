@@ -10,7 +10,7 @@
 #define SPRITE_H
 
 namespace builder {
-    class Sprite : public builder::Animator {
+    class Sprite {
         private:
             std::string texturePath;
             sf::Sprite sprite;
@@ -22,13 +22,12 @@ namespace builder {
 
             // customisable by user
             std::string getTexturePath() const;
-            sf::Sprite* getSfSprite() override;
+            sf::Sprite* getSfSprite();
 
             void setSize(const float& x, const float& y);
             void setPosition(const float& x, const float& y);
             void setTexturePath(const std::string& textureFilePath);
 
-            virtual void init() = 0; // called before starting sfml game
             virtual void update() = 0; // where update code goes
     };
 }
