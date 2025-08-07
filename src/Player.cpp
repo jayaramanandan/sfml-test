@@ -12,13 +12,10 @@ void Player::init() {
     const int frames[1][4] = {{1, 1, 14, 5}};
     this->addAnimation("idle", frames, 1);
     this->startAnimation("idle");
-    
+
     this->setOriginToObjectCentre();
     this->setPosition(20, 20);
-    this->setScale(10.0f, 10.0f);    
-
-    std::cout << this->getOrigin().x << std::endl;
-    std::cout << this->getOrigin().y << std::endl;
+    this->setScale(10.0f, 10.0f);
 }
 
 void Player::update() {
