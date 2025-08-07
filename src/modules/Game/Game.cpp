@@ -1,5 +1,14 @@
 #include "Game.hpp"
 
+builder::Game::Game(const int& observedFrameRate, const int& actualFrameRate) {
+    this->frameRateDetails.observedFrameRate = observedFrameRate;
+    this->frameRateDetails.actualFrameRate = actualFrameRate;
+}
+
+builder::FrameRateDetails* builder::Game::getFrameRateDetails() {
+    return &this->frameRateDetails;
+}
+
 void builder::Game::addSprite(std::unique_ptr<builder::Sprite> sprite_ptr) {
     this->sprites.push_back(std::move(sprite_ptr));
 }
@@ -23,10 +32,12 @@ void builder::Game::addSpriteTexture(const std::unique_ptr<builder::Sprite>& spr
 
 void builder::Game::run(const std::string& windowTitle, const int& width, const int& height) {
     sf::RenderWindow window(sf::VideoMode(width, height), windowTitle);
+    window.setFramerateLimit(this->frameRateDetails.actualFrameRate);
 
     // initialise sprites
     for(auto& sprite_ptr : this->sprites) {
         this->addSpriteTexture(std::move(sprite_ptr));
+        sprite_ptr->init();
     }
     
 
@@ -46,6 +57,13 @@ void builder::Game::run(const std::string& windowTitle, const int& width, const 
 
         // draw
         for(auto& sprite_ptr : this->sprites) {
+            sf::FloatRect bounds = sprite_ptr->getSfSprite()->getGlobalBounds();
+            sf::RectangleShape myRect(sf::Vector2f(bounds.width, bounds.height));
+            myRect.setFillColor(sf::Color::Red);
+            myRect.setPosition(bounds.getPosition());
+
+            window.draw(myRect);
+
             window.draw(*sprite_ptr->getSfSprite());
         }
 
