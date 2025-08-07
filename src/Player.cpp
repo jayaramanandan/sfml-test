@@ -14,7 +14,7 @@ void Player::init() {
     this->startAnimation("idle");
 
     this->setOriginToObjectCentre();
-    this->setPosition(20, 20);
+    this->setPosition(100, 100);
     this->setScale(10.0f, 10.0f);
 }
 
