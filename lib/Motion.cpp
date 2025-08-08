@@ -2,14 +2,15 @@
 #include <iostream>
 #include "../include/utility/maths.hpp"
 
-builder::Motion::Motion(FrameRateDetails* details) {
+void builder::Motion::setFrameRateDetails(FrameRateDetails *details) {
     if(details->observedFrameRate > details->actualFrameRate) {
         std::cerr << "The observed frame rate is greater than the actual frame rate" << std::endl;
     }
-    
+
     this->frameRateDetails = details;
-    this->multiplicationFactor = this->frameRateDetails->observedFrameRate / (float) this->frameRateDetails->actualFrameRate;
+    this->multiplicationFactor = this->frameRateDetails->observedFrameRate / static_cast<float>(this->frameRateDetails->actualFrameRate);
 }
+
 
 sf::Vector2f builder::Motion::getOrigin() {
     return this->getSfSprite()->getOrigin();
@@ -64,8 +65,8 @@ void builder::Motion::move(const float& x, const float&y) {
 }
 
 void builder::Motion::moveInCurrentDirection(const float& distance) {
-    const builder::Components components = builder::getComponents(distance, this->getRotation());
-    this->move(components.x, components.y);
+    const auto [x, y] = getComponents(distance, this->getRotation());
+    this->move(x, y);
 }
 
 void builder::Motion::rotate(const float& degrees) {

@@ -1,5 +1,8 @@
 #include "../include/Game.hpp"
 
+#include "Motion.hpp"
+#include "../include/Animator.hpp"
+
 builder::Game::Game(const int& observedFrameRate, const int& actualFrameRate) {
     this->frameRateDetails.observedFrameRate = observedFrameRate;
     this->frameRateDetails.actualFrameRate = actualFrameRate;
@@ -8,18 +11,11 @@ builder::Game::Game(const int& observedFrameRate, const int& actualFrameRate) {
 builder::FrameRateDetails* builder::Game::getFrameRateDetails() {
     return &this->frameRateDetails;
 }
-/*
-void builder::Game::addSprite(std::unique_ptr<builder::Sprite> sprite_ptr) {
-    this->sprites.push_back(std::move(sprite_ptr));
-}
-*/
-
-
 
 void builder::Game::addSpriteTexture(const std::unique_ptr<builder::Sprite>& sprite_ptr) {
     std::string texturePath = sprite_ptr->getTexturePath();
 
-    if(this->textures.find(texturePath) == this->textures.end()) { // checks to see if the texture path has already been stored
+    if(!this->textures.contains(texturePath)) { // checks to see if the texture path has already been stored
         sf::Texture spriteTexture;
 
         if(!spriteTexture.loadFromFile(texturePath)) {
@@ -38,14 +34,21 @@ void builder::Game::run(const std::string& windowTitle, const int& width, const 
     window.setFramerateLimit(this->frameRateDetails.actualFrameRate);
 
     // initialise sprites
-    for(auto& sprite_ptr : this->sprites) {
-        this->addSpriteTexture(std::move(sprite_ptr));
+    for(const auto& sprite_ptr : this->sprites) {
+        this->addSpriteTexture(sprite_ptr);
         sprite_ptr->init();
+
+        if (auto basePtr = dynamic_cast<Animator*>(sprite_ptr.get())) {
+            basePtr->startAnimationClocks();
+        }
+        if (auto basePtr = dynamic_cast<Motion*>(sprite_ptr.get())) {
+            basePtr->setFrameRateDetails(&this->frameRateDetails);
+        }
     }
     
 
     while (window.isOpen()) {
-        sf::Event event;
+        sf::Event event{};
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();

@@ -7,12 +7,13 @@
 namespace builder {
     class Motion {
         private:
-            FrameRateDetails* frameRateDetails;
-            float multiplicationFactor;
+            FrameRateDetails*frameRateDetails = nullptr;
+            float multiplicationFactor = 1;
         
         public:
-            explicit Motion(FrameRateDetails* details);
             virtual ~Motion() = default;
+
+            void setFrameRateDetails(FrameRateDetails* details);
 
             virtual sf::Sprite* getSfSprite() = 0;
 
@@ -37,5 +38,3 @@ namespace builder {
 }
 
 #endif
-
-// pi/180 = 1

@@ -1,8 +1,6 @@
 #include "Player.hpp"
 
-Player::Player(builder::FrameRateDetails* frameRateDetails) :
-builder::Sprite("assets/Bowl.png"),
-builder::Motion(frameRateDetails) {}
+Player::Player() : Sprite("assets/Bowl.png") {}
 
 sf::Sprite* Player::getSfSprite() {
     return Sprite::getSfSprite();

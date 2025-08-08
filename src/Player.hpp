@@ -10,7 +10,7 @@
 
 class Player : public builder::Sprite, public builder::Animator, public builder::Motion {
     public:
-        Player(builder::FrameRateDetails* frameRateDetails);
+        Player();
 
         sf::Sprite* getSfSprite() override;
         

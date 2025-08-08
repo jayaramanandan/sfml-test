@@ -18,7 +18,6 @@ namespace builder {
             std::unordered_map<std::string, Animation> animations;
         
         public:
-            Animator();
             virtual ~Animator() = default;
         
             virtual sf::Sprite* getSfSprite() = 0;
@@ -31,7 +30,7 @@ namespace builder {
 
             void deleteAnimation(std::string& name);
 
-            void startAnimationClocks();
+            void startAnimationClocks() const;
     };
 }
 
