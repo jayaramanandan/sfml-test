@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
-#include "modules/utility/FrameRateDetails/FrameRateDetails.hpp"
-#include "modules/Sprite/Sprite.hpp"
-#include "modules/Animator/Animator.hpp"
-#include "modules/Motion/Motion.hpp"
+#include "../include/utility/FrameRateDetails.hpp"
+#include "../include/Sprite.hpp"
+#include "../include/Animator.hpp"
+#include "../include/Motion.hpp"
 
 #ifndef PLAYER_H
 #define PLAYER_H

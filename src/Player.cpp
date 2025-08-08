@@ -1,7 +1,7 @@
 #include "Player.hpp"
 
 Player::Player(builder::FrameRateDetails* frameRateDetails) :
-builder::Sprite("/workspaces/sfml-test/build/assets/Bowl.png"),
+builder::Sprite("assets/Bowl.png"),
 builder::Motion(frameRateDetails) {}
 
 sf::Sprite* Player::getSfSprite() {
@@ -9,7 +9,7 @@ sf::Sprite* Player::getSfSprite() {
 }
 
 void Player::init() {
-    const int frames[1][4] = {{1, 1, 14, 5}};
+    constexpr int frames[1][4] = {{1, 1, 14, 5}};
     this->addAnimation("idle", frames, 1);
     this->startAnimation("idle");
 

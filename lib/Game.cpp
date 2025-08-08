@@ -1,4 +1,4 @@
-#include "Game.hpp"
+#include "../include/Game.hpp"
 
 builder::Game::Game(const int& observedFrameRate, const int& actualFrameRate) {
     this->frameRateDetails.observedFrameRate = observedFrameRate;

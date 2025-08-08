@@ -1,11 +1,11 @@
+#ifndef ANIMATOR_H
+#define ANIMATOR_H
+
 #include <iostream>
 #include <vector>
 #include <unordered_map>
 #include <cmath>
 #include <SFML/Graphics.hpp>
-
-#ifndef ANIMATOR_H
-#define ANIMATOR_H
 
 namespace builder {
     struct Animation {
@@ -19,6 +19,8 @@ namespace builder {
         
         public:
             Animator();
+            virtual ~Animator() = default;
+        
             virtual sf::Sprite* getSfSprite() = 0;
             
             void startAnimation(const std::string& animationName);

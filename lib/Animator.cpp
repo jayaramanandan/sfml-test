@@ -1,4 +1,4 @@
-#include "Animator.hpp"
+#include "../include/Animator.hpp"
 
 builder::Animator::Animator() {
     this->startAnimationClocks();

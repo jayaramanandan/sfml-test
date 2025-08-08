@@ -1,4 +1,6 @@
-#include "Motion.hpp"
+#include "../include/Motion.hpp"
+#include <iostream>
+#include "../include/utility/maths.hpp"
 
 builder::Motion::Motion(FrameRateDetails* details) {
     if(details->observedFrameRate > details->actualFrameRate) {

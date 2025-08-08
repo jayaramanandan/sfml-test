@@ -1,4 +1,4 @@
-#include "maths.hpp"
+#include "../../include/utility/maths.hpp"
 
 float builder::toRad(const float& angle) {
         return angle * builder::PI / 180;

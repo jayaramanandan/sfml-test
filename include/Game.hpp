@@ -1,13 +1,12 @@
-#include <iostream>
+#ifndef GAME_H
+#define GAME_H
+
 #include <unordered_map>
 #include <vector>
 #include <memory>
 #include <SFML/Graphics.hpp>
-#include "../utility/FrameRateDetails/FrameRateDetails.hpp"
-#include "../Sprite/Sprite.hpp"
-
-#ifndef GAME_H
-#define GAME_H
+#include "utility/FrameRateDetails.hpp"
+#include "Sprite.hpp"
 
 namespace builder {
     class Game {

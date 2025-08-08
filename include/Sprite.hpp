@@ -1,12 +1,10 @@
-#include <unordered_map>
-#include <vector>
-#include <string>
-#include <cmath>
-#include <SFML/Graphics.hpp>
-#include "../Animator/Animator.hpp"
-
 #ifndef SPRITE_H
 #define SPRITE_H
+
+#include <unordered_map>
+#include <string>
+#include <SFML/Graphics.hpp>
+#include "Animator.hpp"
 
 namespace builder {
     class Sprite {
@@ -16,11 +14,12 @@ namespace builder {
             std::unordered_map<std::string, builder::Animation> animations;
 
         public:
-            Sprite(const std::string& textureFilePath);
+            explicit Sprite(const std::string& textureFilePath);
+            virtual ~Sprite() = default;
 
             // customisable by user
             std::string getTexturePath() const;
-            sf::Sprite* getSfSprite();
+            virtual sf::Sprite* getSfSprite();
             
             void setTexturePath(const std::string& textureFilePath);
 

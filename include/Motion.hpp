@@ -1,19 +1,18 @@
-#include <iostream>
-#include "SFML/Graphics.hpp"
-#include "../utility//FrameRateDetails/FrameRateDetails.hpp"
-#include "../utility/maths/maths.hpp"
-
 #ifndef MOTION_H
 #define MOTION_H
+
+#include "SFML/Graphics.hpp"
+#include "utility/FrameRateDetails.hpp"
 
 namespace builder {
     class Motion {
         private:
-            builder::FrameRateDetails* frameRateDetails;
+            FrameRateDetails* frameRateDetails;
             float multiplicationFactor;
         
         public:
-            Motion(FrameRateDetails* details);
+            explicit Motion(FrameRateDetails* details);
+            virtual ~Motion() = default;
 
             virtual sf::Sprite* getSfSprite() = 0;
 

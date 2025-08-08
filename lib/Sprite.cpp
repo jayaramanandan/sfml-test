@@ -1,4 +1,4 @@
-#include "Sprite.hpp"
+#include "../include/Sprite.hpp"
 
 builder::Sprite::Sprite(const std::string& textureFilePath) {
     this->texturePath = textureFilePath;

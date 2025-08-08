@@ -1,9 +1,6 @@
-#include <iostream>
 #include <string>
-#include <vector>
 #include <memory>
-#include <SFML/Graphics.hpp>
-#include "modules/Game/Game.hpp"
+#include "../include/Game.hpp"
 #include "Player.hpp"
 
 int main() {
