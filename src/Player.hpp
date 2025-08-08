@@ -1,14 +1,11 @@
-#include <iostream>
-#include <string>
-#include "../include/utility/FrameRateDetails.hpp"
+#ifndef PLAYER_H
+#define PLAYER_H
+
 #include "../include/Sprite.hpp"
 #include "../include/Animator.hpp"
 #include "../include/Motion.hpp"
 
-#ifndef PLAYER_H
-#define PLAYER_H
-
-class Player : public builder::Sprite, public builder::Animator, public builder::Motion {
+class Player final : public builder::Sprite, public builder::Animator, public builder::Motion {
     public:
         Player();
 
