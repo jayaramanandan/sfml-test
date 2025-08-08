@@ -11,7 +11,7 @@ namespace builder {
         private:
             std::string texturePath;
             sf::Sprite sprite;
-            std::unordered_map<std::string, builder::Animation> animations;
+            std::unordered_map<std::string, Animation> animations;
 
         public:
             explicit Sprite(const std::string& textureFilePath);

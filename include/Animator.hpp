@@ -15,7 +15,7 @@ namespace builder {
 
     class Animator {
         private:
-            std::unordered_map<std::string, builder::Animation> animations;
+            std::unordered_map<std::string, Animation> animations;
         
         public:
             Animator();

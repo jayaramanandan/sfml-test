@@ -8,10 +8,13 @@ builder::Game::Game(const int& observedFrameRate, const int& actualFrameRate) {
 builder::FrameRateDetails* builder::Game::getFrameRateDetails() {
     return &this->frameRateDetails;
 }
-
+/*
 void builder::Game::addSprite(std::unique_ptr<builder::Sprite> sprite_ptr) {
     this->sprites.push_back(std::move(sprite_ptr));
 }
+*/
+
+
 
 void builder::Game::addSpriteTexture(const std::unique_ptr<builder::Sprite>& sprite_ptr) {
     std::string texturePath = sprite_ptr->getTexturePath();

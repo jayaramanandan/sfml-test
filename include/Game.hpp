@@ -11,18 +11,26 @@
 namespace builder {
     class Game {
         private:
-            builder::FrameRateDetails frameRateDetails;
+            FrameRateDetails frameRateDetails{};
             sf::RenderWindow window;
             std::unordered_map<std::string, sf::Texture> textures;
-            std::vector<std::unique_ptr<builder::Sprite>> sprites;
+            std::vector<std::unique_ptr<Sprite>> sprites;
 
         public:
             Game(const int& observedFrameRate, const int& actualFrameRate);
-            builder::FrameRateDetails* getFrameRateDetails();
-            void addSprite(std::unique_ptr<builder::Sprite> sprite_ptr);
-            void addSpriteTexture(const std::unique_ptr<builder::Sprite>& sprite_ptr);
+            FrameRateDetails* getFrameRateDetails();
+
+            //void addSprite(std::unique_ptr<builder::Sprite> sprite_ptr);
+
+            template <class T, typename... Args>
+            void addSprite(Args&&... args);
+
+            void addSpriteTexture(const std::unique_ptr<Sprite>& sprite_ptr);
             void run(const std::string& windowTitle, const int& width, const int& height);
     };
+
 }
+
+#include "Game.tpp"
 
 #endif

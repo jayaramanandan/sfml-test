@@ -20,6 +20,7 @@ add_library(
         lib/Motion.cpp
         lib/Sprite.cpp
         lib/utility/maths.cpp
+        include/Game.tpp
 )
 
 target_include_directories(
