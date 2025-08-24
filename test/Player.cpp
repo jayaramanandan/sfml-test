@@ -1,6 +1,8 @@
 #include "Player.hpp"
 
-Player::Player() : Sprite("assets/Bowl.png") {}
+Player::Player(const float& x, const float& y) : Sprite("assets/Bowl.png") {
+    this->setPosition(x, y);
+}
 
 sf::Sprite* Player::getSfSprite() {
     return Sprite::getSfSprite();
@@ -12,7 +14,6 @@ void Player::init() {
     this->startAnimation("idle");
 
     this->setOriginToObjectCentre();
-    this->setPosition(100, 100);
     this->setScale(10.0f, 10.0f);
 }
 
@@ -31,4 +32,12 @@ void Player::update() {
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
         this->moveInCurrentDirection(-5);
     }
+
+    //this->player2->getTexturePath();
+
+    /*
+    if (this->isColliding(this->player2)) {
+        this->setPosition(100, 400);
+    }
+    */
 }

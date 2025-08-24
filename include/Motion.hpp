@@ -1,6 +1,7 @@
 #ifndef MOTION_H
 #define MOTION_H
 
+#include "Game.hpp"
 #include "SFML/Graphics.hpp"
 #include "utility/FrameRateDetails.hpp"
 
@@ -22,6 +23,8 @@ namespace builder {
             sf::Vector2f getPosition();
             float getRotation();
             sf::Vector2f getScale();
+
+            bool isColliding(const Entity<Sprite>& sprite);
 
             void setOrigin(const float& x, const float& y);
             void setOriginToObjectCentre();

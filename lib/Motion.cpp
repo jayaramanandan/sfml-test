@@ -1,5 +1,5 @@
-#include "../include/Motion.hpp"
 #include <iostream>
+#include "../include/Motion.hpp"
 #include "../include/utility/maths.hpp"
 
 void builder::Motion::setFrameRateDetails(FrameRateDetails *details) {
@@ -10,7 +10,6 @@ void builder::Motion::setFrameRateDetails(FrameRateDetails *details) {
     this->frameRateDetails = details;
     this->multiplicationFactor = this->frameRateDetails->observedFrameRate / static_cast<float>(this->frameRateDetails->actualFrameRate);
 }
-
 
 sf::Vector2f builder::Motion::getOrigin() {
     return this->getSfSprite()->getOrigin();
@@ -31,6 +30,13 @@ float builder::Motion::getRotation() {
 sf::Vector2f builder::Motion::getScale() {
     return this->getSfSprite()->getScale();
 }
+
+bool builder::Motion::isColliding(const Entity<Sprite>& sprite) {
+    return this->getSfSprite()->getGlobalBounds().intersects(
+        sprite->getSfSprite()->getGlobalBounds()
+    );
+}
+
 
 void builder::Motion::setOrigin(const float& x, const float& y) {
     this->getSfSprite()->setOrigin(x, y);
