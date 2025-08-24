@@ -21,7 +21,6 @@ add_library(
         lib/Sprite.cpp
         lib/utility/maths.cpp
         test/BowlGame.cpp
-        test/BowlGame.h
 )
 
 target_include_directories(

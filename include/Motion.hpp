@@ -24,7 +24,7 @@ namespace builder {
             float getRotation();
             sf::Vector2f getScale();
 
-            bool isColliding(const Entity<Sprite>& sprite);
+            bool isColliding(Sprite& sprite);
 
             void setOrigin(const float& x, const float& y);
             void setOriginToObjectCentre();

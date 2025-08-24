@@ -1,14 +1,13 @@
-#include "BowlGame.h"
+#include "BowlGame.hpp"
 
-BowlGame::BowlGame() :
-Game("Bowl Catch", 800, 600, 30, 60),
+BowlGame::BowlGame(builder::WindowDetails& windowDetails, builder::FrameRateDetails& frameRateDetails) :
+Game(windowDetails, frameRateDetails),
 player(200, 200)
 {
     this->run();
 }
 
 void BowlGame::initiateSprites() {
-    std::cout << player.getTexturePath() << std::endl;
     this->initiateSprite(player);
 }
 

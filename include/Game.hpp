@@ -2,15 +2,12 @@
 #define GAME_H
 
 #include <unordered_map>
-#include <memory>
 #include <SFML/Graphics.hpp>
 #include "utility/FrameRateDetails.hpp"
 #include "Sprite.hpp"
+#include "utility/WindowDetails.hpp"
 
 namespace builder {
-    template <class T>
-    using Entity = std::shared_ptr<T>;
-
     class Game {
         private:
             FrameRateDetails frameRateDetails{};
@@ -18,7 +15,7 @@ namespace builder {
             std::unordered_map<std::string, sf::Texture> textures;
 
         public:
-            Game(const std::string& windowTitle, const int& width, const int& height, const int& observedFrameRate, const int& actualFrameRate);
+            Game(WindowDetails& windowDetails, FrameRateDetails& frameRateDetails);
             virtual ~Game() = default;
 
             FrameRateDetails* getFrameRateDetails();

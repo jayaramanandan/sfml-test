@@ -2,13 +2,13 @@
 #include "../include/Motion.hpp"
 #include "../include/utility/maths.hpp"
 
-void builder::Motion::setFrameRateDetails(FrameRateDetails *details) {
+void builder::Motion::setFrameRateDetails(FrameRateDetails* details) {
     if(details->observedFrameRate > details->actualFrameRate) {
         std::cerr << "The observed frame rate is greater than the actual frame rate" << std::endl;
     }
 
     this->frameRateDetails = details;
-    this->multiplicationFactor = this->frameRateDetails->observedFrameRate / static_cast<float>(this->frameRateDetails->actualFrameRate);
+    this->multiplicationFactor = static_cast<float>(this->frameRateDetails->observedFrameRate) / static_cast<float>(this->frameRateDetails->actualFrameRate);
 }
 
 sf::Vector2f builder::Motion::getOrigin() {
@@ -31,9 +31,9 @@ sf::Vector2f builder::Motion::getScale() {
     return this->getSfSprite()->getScale();
 }
 
-bool builder::Motion::isColliding(const Entity<Sprite>& sprite) {
+bool builder::Motion::isColliding(Sprite& sprite) {
     return this->getSfSprite()->getGlobalBounds().intersects(
-        sprite->getSfSprite()->getGlobalBounds()
+        sprite.getSfSprite()->getGlobalBounds()
     );
 }
 

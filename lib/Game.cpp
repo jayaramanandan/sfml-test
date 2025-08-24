@@ -1,12 +1,11 @@
-#include "SFML/Graphics.hpp"
 #include "../include/Game.hpp"
 #include "Motion.hpp"
 #include "../include/Animator.hpp"
 
-builder::Game::Game(const std::string& windowTitle, const int& width, const int& height, const int& observedFrameRate, const int& actualFrameRate) :
-window(sf::VideoMode(width, height), windowTitle) {
-    this->frameRateDetails.observedFrameRate = observedFrameRate;
-    this->frameRateDetails.actualFrameRate = actualFrameRate;
+builder::Game::Game(WindowDetails& windowDetails, FrameRateDetails& frameRateDetails) :
+window(sf::VideoMode(windowDetails.width, windowDetails.height), windowDetails.windowTitle) {
+    this->frameRateDetails.observedFrameRate = frameRateDetails.observedFrameRate;
+    this->frameRateDetails.actualFrameRate = frameRateDetails.actualFrameRate;
 }
 
 builder::FrameRateDetails* builder::Game::getFrameRateDetails() {
@@ -71,21 +70,6 @@ void builder::Game::run() {
 
         // draw and update
         this->render();
-
-
-        /*
-        for(auto& sprite_ptr : this->sprites) {
-            sf::FloatRect bounds = sprite_ptr->getSfSprite()->getGlobalBounds();
-            sf::RectangleShape myRect(sf::Vector2f(bounds.width, bounds.height));
-            myRect.setFillColor(sf::Color::Red);
-            myRect.setPosition(bounds.getPosition());
-
-            window.draw(myRect);
-
-
-
-            window.draw(*sprite_ptr->getSfSprite());
-        }*/
 
         this->window.display();
     }

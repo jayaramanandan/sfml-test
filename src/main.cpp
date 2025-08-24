@@ -1,16 +1,18 @@
-#include "../test/BowlGame.h"
+#include "../test/BowlGame.hpp"
+#include "../include/utility/WindowDetails.hpp"
+#include "../include/utility/FrameRateDetails.hpp"
 
 int main() {
-    /*
-    builder::Game game(30, 60);
+    builder::WindowDetails windowDetails;
+    builder::FrameRateDetails frameRateDetails{};
 
-    builder::Entity<Player> player2 = game.createSprite<Player>(200, 200);
+    windowDetails.windowTitle = "Bowl Catcher";
+    windowDetails.width = 800;
+    windowDetails.height = 800;
+    frameRateDetails.observedFrameRate = 30;
+    frameRateDetails.actualFrameRate = 60;
 
-    auto player = game.createSprite<Player>(200, 340, player2);
-
-    game.run("Bowl Catch", 800, 600);*/
-
-    BowlGame game;
+    BowlGame game(windowDetails, frameRateDetails);
 
     return 0;
 }
