@@ -1,30 +1,25 @@
 #ifndef MOTION_H
 #define MOTION_H
 
-#include "Game.hpp"
+#include "Entity.hpp"
 #include "SFML/Graphics.hpp"
-#include "utility/FrameRateDetails.hpp"
+#include "../utility/FrameRateDetails.hpp"
 
 namespace builder {
-    class Motion {
+    template <ValidType T>
+    class Motion : public Entity<T> {
         private:
             FrameRateDetails*frameRateDetails = nullptr;
             float multiplicationFactor = 1;
         
         public:
-            virtual ~Motion() = default;
-
             void setFrameRateDetails(FrameRateDetails* details);
-
-            virtual sf::Sprite* getSfSprite() = 0;
 
             sf::Vector2f getOrigin();
             sf::Color getColour();
             sf::Vector2f getPosition();
             float getRotation();
             sf::Vector2f getScale();
-
-            bool isColliding(Sprite& sprite);
 
             void setOrigin(const float& x, const float& y);
             void setOriginToObjectCentre();
@@ -38,6 +33,11 @@ namespace builder {
             void rotate(const float& degrees);
             void scale(const float& x, const float& y);
     };
+
+    using SpriteMotion = Motion<sf::Sprite>;
+    using ShapeMotion = Motion<sf::Shape>;
 }
+
+#include "Motion.tpp"
 
 #endif

@@ -4,8 +4,14 @@ Player::Player(const float& x, const float& y) : Sprite("assets/Bowl.png") {
     this->setPosition(x, y);
 }
 
-sf::Sprite* Player::getSfSprite() {
-    return Sprite::getSfSprite();
+Player::Player(const float &x, const float &y, Player *player2) : Sprite("assets/Bowl.png") {
+    this->setPosition(x, y);
+    this->player2 = player2;
+}
+
+
+sf::Sprite* Player::getDrawable() {
+    return this->getSfSprite();
 }
 
 void Player::init() {
@@ -33,11 +39,9 @@ void Player::update() {
         this->moveInCurrentDirection(-5);
     }
 
-    //this->player2->getTexturePath();
 
-    /*
-    if (this->isColliding(this->player2)) {
+    if (this->player2 != nullptr && this->isColliding(*this->player2)) {
         this->setPosition(100, 400);
     }
-    */
+
 }

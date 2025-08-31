@@ -14,5 +14,7 @@ int main() {
 
     BowlGame game(windowDetails, frameRateDetails);
 
+    game.run();
+
     return 0;
 }

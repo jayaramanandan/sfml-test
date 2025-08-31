@@ -1,11 +1,9 @@
 #ifndef ANIMATOR_H
 #define ANIMATOR_H
 
-#include <iostream>
-#include <vector>
-#include <unordered_map>
-#include <cmath>
 #include <SFML/Graphics.hpp>
+#include "Entity.hpp"
+#include "../utility/Dictionary.hpp"
 
 namespace builder {
     struct Animation {
@@ -13,15 +11,11 @@ namespace builder {
         sf::Clock clock;
     };
 
-    class Animator {
+    class Animator : Entity<sf::Sprite> {
         private:
-            std::unordered_map<std::string, Animation> animations;
+            Dictionary<Animation> animations{};
         
         public:
-            virtual ~Animator() = default;
-        
-            virtual sf::Sprite* getSfSprite() = 0;
-            
             void startAnimation(const std::string& animationName);
             void startAnimation(const std::string& animationName, const float& speed);
 

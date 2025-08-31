@@ -1,9 +1,9 @@
-#include "../include/Animator.hpp"
-
-#include <ranges>
+#include <iostream>
+#include <cmath>
+#include "../../include/Entities/Animator.hpp"
 
 void builder::Animator::startAnimation(const std::string& animationName) {
-    this->getSfSprite()->setTextureRect(this->animations.at(animationName).frames[0]);
+    this->getDrawable()->setTextureRect(this->animations.at(animationName).frames[0]);
 }
 
 void builder::Animator::startAnimation(const std::string& animationName, const float& speed) {
@@ -14,7 +14,7 @@ void builder::Animator::startAnimation(const std::string& animationName, const f
     );
 
     if(index < animations.size()) {
-        this->getSfSprite()->setTextureRect(frames[index]);
+        this->getDrawable()->setTextureRect(frames[index]);
     }
 }
 
@@ -23,7 +23,7 @@ void builder::Animator::addAnimation(const std::string& name, const int frames[]
         std::cerr << "cannot have 0 frames" << "\n\n";
     }
 
-    builder::Animation animation;
+    Animation animation;
 
     animation.frames = std::vector<sf::IntRect>();
     animation.clock = sf::Clock();
@@ -40,7 +40,7 @@ void builder::Animator::addAnimation(const std::string& name, const int frames[]
         std::cerr << "cannot have 0 frames" << "\n\n";
     }
 
-    builder::Animation animation;
+    Animation animation;
 
     animation.frames = std::vector<sf::IntRect>();
     animation.clock = sf::Clock();

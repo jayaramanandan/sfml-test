@@ -1,6 +1,3 @@
-#include <cmath>
-#include "SFML/Graphics.hpp"
-
 #ifndef MATHS_H
 #define MATHS_H
 

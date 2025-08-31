@@ -15,12 +15,15 @@ set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
 add_library(
         SfmlWrapper STATIC
         test/Player.cpp
-        lib/Animator.cpp
+        lib/Entities/Animator.cpp
         lib/Game.cpp
-        lib/Motion.cpp
-        lib/Sprite.cpp
+        lib/Entities/Sprite.cpp
         lib/utility/maths.cpp
         test/BowlGame.cpp
+        lib/UI/Button.cpp
+        lib/GameManager.cpp
+        include/Scene.cpp
+        include/Scene.hpp
 )
 
 target_include_directories(
