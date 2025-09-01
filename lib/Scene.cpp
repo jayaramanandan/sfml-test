@@ -15,6 +15,8 @@ void builder::Scene::initiateEntity(Sprite &sprite) const {
     this->game->addSpriteTexture(sprite);
     sprite.init();
 
+    // ok
+
     if (const auto* sprite_ptr = dynamic_cast<Animator*>(&sprite)) {
         sprite_ptr->startAnimationClocks();
     }
