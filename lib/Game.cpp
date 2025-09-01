@@ -3,6 +3,7 @@
 #include "../include/Entities/Motion.hpp"
 #include "../include/Entities/Animator.hpp"
 #include "../include/Entities/Collision.hpp"
+#include "../include/Scene.hpp"
 
 builder::Game::Game(const WindowDetails& windowDetails, const FrameRateDetails& frameRateDetails) :
 window(sf::VideoMode(windowDetails.width, windowDetails.height), windowDetails.windowTitle) {
@@ -19,29 +20,10 @@ sf::RenderWindow *builder::Game::getWindow() {
     return &this->window;
 }
 
-void builder::Game::initiateSprite(Sprite &sprite) {
-    this->addSpriteTexture(sprite);
-    sprite.init();
-
-    if (const auto* sprite_ptr = dynamic_cast<Animator*>(&sprite)) {
-        sprite_ptr->startAnimationClocks();
-    }
-    if (auto* sprite_ptr = dynamic_cast<SpriteMotion*>(&sprite)) {
-        sprite_ptr->setFrameRateDetails(&this->frameRateDetails);
-    }
+builder::Scene* builder::Game::getCurrentScene() const {
+    return this->scenes.at(currentSceneName);
 }
 
-void builder::Game::renderSprite(Sprite& sprite) {
-    sprite.update();
-
-    const sf::FloatRect bounds = sprite.getSfSprite()->getGlobalBounds();
-    sf::RectangleShape myRect(sf::Vector2f(bounds.width, bounds.height));
-    myRect.setFillColor(sf::Color::Red);
-    myRect.setPosition(bounds.getPosition());
-    this->window.draw(myRect);
-
-    this->window.draw(*sprite.getSfSprite());
-}
 
 void builder::Game::addSpriteTexture(Sprite& sprite) {
     std::string texturePath = sprite.getTexturePath();
@@ -60,36 +42,33 @@ void builder::Game::addSpriteTexture(Sprite& sprite) {
     sprite.getSfSprite()->setTexture(this->textures.at(texturePath));
 }
 
-void builder::Game::addClickListener(SpriteCollision* sprite) {
-    this->clickListenerSprites.push_back(sprite);
+void builder::Game::addScene(const std::string& sceneName, Scene* scene) {
+    this->scenes.insert_or_assign(sceneName, scene);
 }
-
-void builder::Game::addClickListener(ShapeCollision* shape) {
-    this->clickListenerShapes.push_back(shape);
-}
-
 
 void builder::Game::run() {
     this->window.setFramerateLimit(this->frameRateDetails.actualFrameRate);
 
-    this->initiateSprites();
+    Scene* currentScene = this->getCurrentScene();
+
+    currentScene->initiateSprites();
 
     while (this->window.isOpen()) {
-        sf::Event event{};
+        Events event{};
         while (this->window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed) this->window.close();
+            if (event.type == Events::Closed) this->window.close();
 
-            for (const auto sprite : this->clickListenerSprites) {
+            for (const auto sprite : currentScene->getClickListenerSprites()) {
                 sprite->setIsClicking(
-                    event.type == sf::Event::MouseButtonPressed &&
+                    event.type == Events::MouseButtonPressed &&
                     event.mouseButton.button == sf::Mouse::Left &&
                     sprite->mouseHovering()
                 );
             }
 
-            for (const auto shape : this->clickListenerShapes) {
+            for (const auto shape : currentScene->getClickListenerShapes()) {
                 shape->setIsClicking(
-                    event.type == sf::Event::MouseButtonPressed &&
+                    event.type == Events::MouseButtonPressed &&
                     event.mouseButton.button == sf::Mouse::Left &&
                     shape->mouseHovering()
                 );
@@ -99,7 +78,7 @@ void builder::Game::run() {
         this->window.clear();
 
         // draw and update
-        this->render();
+        currentScene->render();
 
         this->window.display();
     }

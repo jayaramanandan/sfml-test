@@ -21,9 +21,10 @@ add_library(
         lib/utility/maths.cpp
         test/BowlGame.cpp
         lib/UI/Button.cpp
-        lib/GameManager.cpp
-        include/Scene.cpp
+        lib/Scene.cpp
         include/Scene.hpp
+        test/Scene1.cpp
+        test/Scene1.hpp
 )
 
 target_include_directories(

@@ -2,10 +2,10 @@
 #define COLLISION_TPP
 
 #include "Collision.hpp"
-#include "Game.hpp"
-#include "../GameManager.hpp"
+#include "Scene.hpp"
 
 namespace builder {
+
     template<ValidType T>
     void Collision<T>::addHoverListener() {
         this->listeners.hover = true;
@@ -13,7 +13,7 @@ namespace builder {
 
     template<ValidType T>
     void Collision<T>::addClickListener() {
-        GameManager::getGame()->addClickListener(this);
+        scene->addClickListener(this);
         this->listeners.click = true;
     }
 
@@ -37,7 +37,7 @@ namespace builder {
     template<ValidType T>
     bool Collision<T>::mouseHovering() {
         if (this->listeners.hover) {
-            const sf::Vector2i mousePos = sf::Mouse::getPosition(*GameManager::getGame()->getWindow());
+            const sf::Vector2i mousePos = sf::Mouse::getPosition(scene->getWindow());
             return this->getDrawable()->getGlobalBounds().contains(
                 static_cast<float>(mousePos.x),
                 static_cast<float>(mousePos.y)

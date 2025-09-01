@@ -7,15 +7,8 @@
 #include "../include/utility/FrameRateDetails.hpp"
 
 class BowlGame final : public builder::Game {
-    private:
-        Player player;
-        Player player2;
-
     public:
         BowlGame(builder::WindowDetails& windowDetails, builder::FrameRateDetails& frameRateDetails);
-
-        void initiateSprites() override;
-        void render() override;
 };
 
 

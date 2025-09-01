@@ -1,22 +1,25 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include <string>
 #include <SFML/Graphics.hpp>
-
-#include "Entities/Collision.hpp"
 #include "utility/FrameRateDetails.hpp"
 #include "Entities/Sprite.hpp"
 #include "utility/WindowDetails.hpp"
 #include "utility/Dictionary.hpp"
 
 namespace builder {
+    class Scene; // Forward declaration instead of including Scene.hpp
+
+    using Events = sf::Event;
+
     class Game {
         private:
-            FrameRateDetails frameRateDetails{};
             sf::RenderWindow window;
+            FrameRateDetails frameRateDetails;
+            std::string currentSceneName;
+            Dictionary<Scene*> scenes;
             Dictionary<sf::Texture> textures;
-            std::vector<SpriteCollision*> clickListenerSprites{};
-            std::vector<ShapeCollision*> clickListenerShapes{};
 
         public:
             Game(const WindowDetails& windowDetails, const FrameRateDetails& frameRateDetails);
@@ -24,20 +27,12 @@ namespace builder {
 
             FrameRateDetails* getFrameRateDetails();
             sf::RenderWindow* getWindow();
-
-            void initiateSprite(Sprite& sprite);
-            void renderSprite(Sprite& sprite);
+            Scene* getCurrentScene() const;
 
             void addSpriteTexture(Sprite& sprite);
-
-            void addClickListener(SpriteCollision* sprite);
-            void addClickListener(ShapeCollision* shape);
-
-            virtual void initiateSprites() = 0;
-            virtual void render() = 0;
+            void addScene(const std::string& sceneName, Scene* scene);
             void run();
     };
-
 }
 
 #endif

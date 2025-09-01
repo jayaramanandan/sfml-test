@@ -6,7 +6,7 @@
 #include "../include/Entities/Motion.hpp"
 #include "../include/Entities/Collision.hpp"
 
-class Player final : public builder::Sprite, public builder::Animator, public builder::Motion<sf::Sprite>, public builder::Collision<sf::Sprite> {
+class Player : public builder::Sprite, public builder::Animator, public builder::Motion<sf::Sprite>, public builder::Collision<sf::Sprite> {
     private:
         Player* player2{};
 

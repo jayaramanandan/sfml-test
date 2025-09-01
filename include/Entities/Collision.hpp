@@ -6,6 +6,8 @@
 #include "Sprite.hpp"
 
 namespace builder {
+    class Scene;
+
     struct Listeners {
         bool hover = false;
         bool click = false;
@@ -15,7 +17,7 @@ namespace builder {
     template <ValidType T>
     class Collision : public Entity<T>{
         private:
-            sf::RenderWindow* window{};
+            Scene* scene{};
             Listeners listeners;
             bool clicking = false;
 
@@ -36,6 +38,6 @@ namespace builder {
     using ShapeCollision = Collision<sf::Shape>;
 }
 
-#include "Collsion.tpp"
+#include "Collision.tpp"
 
 #endif
