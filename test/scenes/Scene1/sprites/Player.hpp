@@ -2,10 +2,10 @@
 #define PLAYER_H
 
 #include "aliases.hpp"
-#include "../include/Entities/Sprite.hpp"
-#include "../include/Entities/Animator.hpp"
-#include "../include/Entities/Motion.hpp"
-#include "../include/Entities/Collision.hpp"
+#include "../../../../include/Entities/Sprite.hpp"
+#include "../../../../include/Entities/Animator.hpp"
+#include "../../../../include/Entities/Motion.hpp"
+#include "../../../../include/Entities/Collision.hpp"
 
 class Player : public builder::Sprite, public builder::Animator, public builder::SpriteMotion, public builder::SpriteCollision {
     private:

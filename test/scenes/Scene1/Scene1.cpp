@@ -1,5 +1,5 @@
 #include "Scene1.hpp"
-#include "Player.hpp"
+#include "sprites/Player.hpp"
 
 Scene1::Scene1() {
     auto player1 = this->addEntity<Player>(200, 200);

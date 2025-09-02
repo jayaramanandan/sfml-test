@@ -1,5 +1,5 @@
 #include "BowlGame.hpp"
-#include "Scene1.hpp"
+#include "scenes/Scene1/Scene1.hpp"
 
 BowlGame::BowlGame(builder::WindowDetails& windowDetails, builder::FrameRateDetails& frameRateDetails) :
 Game(windowDetails, frameRateDetails) {
