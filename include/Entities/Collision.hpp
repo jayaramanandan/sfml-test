@@ -6,8 +6,6 @@
 #include "Sprite.hpp"
 
 namespace builder {
-    class Scene;
-
     struct Listeners {
         bool hover = false;
         bool click = false;
@@ -17,15 +15,9 @@ namespace builder {
     template <ValidType T>
     class Collision : public Entity<T>{
         private:
-            Scene* scene{};
-            Listeners listeners;
             bool clicking = false;
 
         public:
-            void addHoverListener();
-            void addClickListener();
-            void addMouseDownListener();
-
             void setIsClicking(const bool& newValue);
 
             bool isColliding(Sprite& sprite);

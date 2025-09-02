@@ -6,7 +6,7 @@
 #include "Entity.hpp"
 
 namespace builder {
-    class Sprite : public Entity<sf::Sprite> {
+    class Sprite : public SpriteEntity {
         private:
             std::string texturePath;
             sf::Sprite sprite;
@@ -14,7 +14,7 @@ namespace builder {
         public:
             explicit Sprite(const std::string& textureFilePath);
 
-            virtual sf::Sprite* getSfSprite();
+            sf::Sprite* getSfSprite();
 
             // customisable by user
             std::string getTexturePath() const;

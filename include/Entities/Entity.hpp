@@ -16,6 +16,9 @@ namespace builder {
             virtual void init() = 0; // called after window renders
             virtual void update() = 0; // where update code goes
     };
+
+    using SpriteEntity = Entity<sf::Sprite>;
+    using ShapeEntity = Entity<sf::Shape>;
 }
 
 #endif

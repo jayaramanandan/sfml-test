@@ -22,9 +22,8 @@ add_library(
         test/BowlGame.cpp
         lib/UI/Button.cpp
         lib/Scene.cpp
-        include/Scene.hpp
         test/Scene1.cpp
-        test/Scene1.hpp
+        lib/WindowManager.cpp
 )
 
 target_include_directories(

@@ -4,9 +4,9 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 #include "utility/FrameRateDetails.hpp"
-#include "Entities/Sprite.hpp"
 #include "utility/WindowDetails.hpp"
 #include "utility/Dictionary.hpp"
+#include "aliases.hpp"
 
 namespace builder {
     class Scene; // Forward declaration instead of including Scene.hpp
@@ -16,7 +16,7 @@ namespace builder {
     class Game {
         private:
             sf::RenderWindow window;
-            FrameRateDetails frameRateDetails;
+            FrameRateDetails frameRateDetails{};
             std::string currentSceneName;
             Dictionary<Scene*> scenes;
             Dictionary<sf::Texture> textures;
@@ -29,8 +29,15 @@ namespace builder {
             sf::RenderWindow* getWindow();
             Scene* getCurrentScene() const;
 
-            void addSpriteTexture(Sprite& sprite);
+            void addSpriteTexture(const SpritePtr& sprite_ptr);
+
+            void initiateEntity(const SpritePtr& sprite);
+            static void pollEntityEvents(const Events& event, const SpritePtr& sprite);
+            void renderEntity(const SpritePtr& sprite);
+
             void addScene(const std::string& sceneName, Scene* scene);
+            void setCurrentScene(const std::string& sceneName);
+
             void run();
     };
 }

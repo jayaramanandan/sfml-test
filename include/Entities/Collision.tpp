@@ -2,26 +2,9 @@
 #define COLLISION_TPP
 
 #include "Collision.hpp"
-#include "Scene.hpp"
+#include "WindowManager.hpp"
 
 namespace builder {
-
-    template<ValidType T>
-    void Collision<T>::addHoverListener() {
-        this->listeners.hover = true;
-    }
-
-    template<ValidType T>
-    void Collision<T>::addClickListener() {
-        scene->addClickListener(this);
-        this->listeners.click = true;
-    }
-
-    template<ValidType T>
-    void Collision<T>::addMouseDownListener() {
-        this->listeners.mouseDown = true;
-    }
-
     template<ValidType T>
     void Collision<T>::setIsClicking(const bool& newValue) {
         this->clicking = newValue;
@@ -30,19 +13,17 @@ namespace builder {
     template<ValidType T>
     bool Collision<T>::isColliding(Sprite &sprite) {
         return this->getDrawable()->getGlobalBounds().intersects(
-            sprite.getSfSprite()->getGlobalBounds()
+            sprite.getDrawable()->getGlobalBounds()
         );
     }
 
     template<ValidType T>
     bool Collision<T>::mouseHovering() {
-        if (this->listeners.hover) {
-            const sf::Vector2i mousePos = sf::Mouse::getPosition(scene->getWindow());
-            return this->getDrawable()->getGlobalBounds().contains(
-                static_cast<float>(mousePos.x),
-                static_cast<float>(mousePos.y)
-            );
-        }
+        const sf::Vector2i mousePos = sf::Mouse::getPosition(*WindowManager::getRenderWindow());
+        return this->getDrawable()->getGlobalBounds().contains(
+            static_cast<float>(mousePos.x),
+            static_cast<float>(mousePos.y)
+        );
 
         return false;
     }
@@ -54,7 +35,7 @@ namespace builder {
 
     template<ValidType T>
     bool Collision<T>::leftMouseDown() {
-        return this->listeners.mouseDown && this->mouseHovering() && sf::Mouse::isButtonPressed(sf::Mouse::Left);
+        return this->mouseHovering() && sf::Mouse::isButtonPressed(sf::Mouse::Left);
     }
 
 }

@@ -2,7 +2,6 @@
 #define BOWLGAME_H
 
 #include "Game.hpp"
-#include "Player.hpp"
 #include "../include/utility/WindowDetails.hpp"
 #include "../include/utility/FrameRateDetails.hpp"
 

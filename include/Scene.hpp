@@ -1,38 +1,27 @@
 #ifndef SCENE_HPP
 #define SCENE_HPP
 
-#include <vector>
-
-#include "Game.hpp"
-#include "Entities/Sprite.hpp"
-#include "Entities/Collision.hpp"
+#include "aliases.hpp"
 
 namespace builder {
     class Scene {
         private:
-            Game* game;
             int sceneId = 0;
-            std::vector<SpriteCollision*> clickListenerSprites{};
-            std::vector<ShapeCollision*> clickListenerShapes{};
+            SpritesArray sprites;
+            ShapesArray uiElements;
 
         public:
             virtual ~Scene() = default;
 
-            sf::RenderWindow* getWindow();
+            [[nodiscard]] SpritesArray* getSprites();
+            [[nodiscard]] ShapesArray* getShapes();
 
-            [[nodiscard]] std::vector<SpriteCollision*> getClickListenerSprites() const;
-            [[nodiscard]] std::vector<ShapeCollision*> getClickListenerShapes() const;
+            template <class T, typename... Args>
+            std::shared_ptr<T> addEntity(Args&&... args);
 
-            void initiateEntity(Sprite& sprite) const;
-            void pollEntityEvent(Sprite& event) const;
-            void renderEntity(Sprite& sprite) const;
-
-            void addClickListener(SpriteCollision* sprite);
-            void addClickListener(ShapeCollision* shape);
-
-            virtual void initiateSprites() = 0;
-            virtual void render() = 0;
     };
 }
+
+#include "Scene.tpp"
 
 #endif
