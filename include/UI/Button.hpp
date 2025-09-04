@@ -13,7 +13,7 @@ namespace builder {
         public:
             Button(const float& width, const float& height);
 
-            sf::RectangleShape* getDrawable() override;
+            sf::RectangleShape& getDrawable() override;
 
             sf::Color getFillColour() const;
             void setFillColour(const sf::Color& colour);

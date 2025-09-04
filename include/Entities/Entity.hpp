@@ -2,6 +2,7 @@
 #define ENTITY_HPP
 
 #include "SFML/Graphics.hpp"
+#include "../utility/EntityModule.hpp"
 
 namespace builder {
     template <class T>
@@ -11,7 +12,9 @@ namespace builder {
         public:
             virtual ~Entity() = default;
 
-            virtual T* getDrawable() = 0;
+            virtual T& getDrawable() = 0;
+
+            virtual EntityModule getModule();
 
             virtual void init() = 0; // called after window renders
             virtual void update() = 0; // where update code goes
@@ -20,5 +23,7 @@ namespace builder {
     using SpriteEntity = Entity<sf::Sprite>;
     using ShapeEntity = Entity<sf::Shape>;
 }
+
+#include "Entity.tpp"
 
 #endif

@@ -6,15 +6,14 @@
 namespace builder {
     class Scene {
         private:
-            int sceneId = 0;
             SpritesArray sprites;
             ShapesArray uiElements;
 
         public:
             virtual ~Scene() = default;
 
-            [[nodiscard]] SpritesArray* getSprites();
-            [[nodiscard]] ShapesArray* getShapes();
+            [[nodiscard]] SpritesArray& getSprites();
+            [[nodiscard]] ShapesArray& getShapes();
 
             template <class T, typename... Args>
             std::shared_ptr<T> addEntity(Args&&... args);

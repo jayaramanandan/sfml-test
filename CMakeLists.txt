@@ -23,7 +23,10 @@ add_library(
         lib/UI/Button.cpp
         lib/Scene.cpp
         test/scenes/Scene1/Scene1.cpp
-        lib/WindowManager.cpp
+        lib/GameManager.cpp
+        include/utility/EntityModule.hpp
+        test/scenes/Scene2/Scene2.cpp
+        test/scenes/Scene2/Scene2.hpp
 )
 
 target_include_directories(

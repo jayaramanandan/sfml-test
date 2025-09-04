@@ -2,9 +2,14 @@
 #define COLLISION_TPP
 
 #include "Collision.hpp"
-#include "WindowManager.hpp"
+#include "GameManager.hpp"
 
 namespace builder {
+    template<ValidType T>
+    EntityModule Collision<T>::getModule() {
+        return EntityModule::Collision;
+    }
+
     template<ValidType T>
     void Collision<T>::setIsClicking(const bool& newValue) {
         this->clicking = newValue;
@@ -12,15 +17,15 @@ namespace builder {
 
     template<ValidType T>
     bool Collision<T>::isColliding(Sprite &sprite) {
-        return this->getDrawable()->getGlobalBounds().intersects(
-            sprite.getDrawable()->getGlobalBounds()
+        return this->getDrawable().getGlobalBounds().intersects(
+            sprite.getDrawable().getGlobalBounds()
         );
     }
 
     template<ValidType T>
     bool Collision<T>::mouseHovering() {
-        const sf::Vector2i mousePos = sf::Mouse::getPosition(*WindowManager::getRenderWindow());
-        return this->getDrawable()->getGlobalBounds().contains(
+        const sf::Vector2i mousePos = sf::Mouse::getPosition(*GameManager::getRenderWindow());
+        return this->getDrawable().getGlobalBounds().contains(
             static_cast<float>(mousePos.x),
             static_cast<float>(mousePos.y)
         );

@@ -2,8 +2,13 @@
 #include <cmath>
 #include "../../include/Entities/Animator.hpp"
 
+builder::EntityModule builder::Animator::getModule() {
+    return EntityModule::Animator;
+}
+
+
 void builder::Animator::startAnimation(const std::string& animationName) {
-    this->getDrawable()->setTextureRect(this->animations.at(animationName).frames[0]);
+    this->getDrawable().setTextureRect(this->animations.at(animationName).frames[0]);
 }
 
 void builder::Animator::startAnimation(const std::string& animationName, const float& speed) {
@@ -14,7 +19,7 @@ void builder::Animator::startAnimation(const std::string& animationName, const f
     );
 
     if(index < animations.size()) {
-        this->getDrawable()->setTextureRect(frames[index]);
+        this->getDrawable().setTextureRect(frames[index]);
     }
 }
 

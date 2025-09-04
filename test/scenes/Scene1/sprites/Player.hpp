@@ -15,7 +15,7 @@ class Player : public builder::Sprite, public builder::Animator, public builder:
         Player(const float& x, const float& y);
         Player(const float& x, const float& y, const builder::SpritePtr& player2);
 
-        sf::Sprite *getDrawable() override;
+        sf::Sprite& getDrawable() override;
 
         void init() override;
         void update() override;

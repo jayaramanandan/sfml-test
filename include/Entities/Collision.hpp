@@ -18,6 +18,10 @@ namespace builder {
             bool clicking = false;
 
         public:
+            ~Collision() override = default;
+
+            EntityModule getModule() override;
+
             void setIsClicking(const bool& newValue);
 
             bool isColliding(Sprite& sprite);

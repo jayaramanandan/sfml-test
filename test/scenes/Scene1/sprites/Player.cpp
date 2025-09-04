@@ -1,4 +1,6 @@
 #include "Player.hpp"
+#include "../../../../include/GameManager.hpp"
+#include "../../Scene2/Scene2.hpp"
 
 Player::Player(const float& x, const float& y) : Sprite("assets/Bowl.png") {
     this->setPosition(x, y);
@@ -9,7 +11,7 @@ Player::Player(const float &x, const float &y, const builder::SpritePtr& player2
     this->player2 = player2;
 }
 
-sf::Sprite* Player::getDrawable() {
+sf::Sprite& Player::getDrawable() {
     return this->getSfSprite();
 }
 
@@ -41,7 +43,8 @@ void Player::update() {
 
 
     if (this->player2 != nullptr && this->isColliding(*this->player2)) {
-        this->setPosition(100, 400);
+        builder::GameManager::setCurrentScene<Scene2>();
+        std::cout << builder::GameManager::getCurrentScene().get()->getSprites().size() << "\n";
     }
 
 }

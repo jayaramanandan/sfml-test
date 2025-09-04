@@ -13,6 +13,10 @@ namespace builder {
             float multiplicationFactor = 1;
         
         public:
+            ~Motion() override = default;
+
+            EntityModule getModule() override;
+
             void setFrameRateDetails(FrameRateDetails* details);
 
             sf::Vector2f getOrigin();

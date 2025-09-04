@@ -3,8 +3,8 @@
 builder::Button::Button(const float& width, const float& height) :
 buttonRect(sf::Vector2f(width, height)) {}
 
-sf::RectangleShape* builder::Button::getDrawable() {
-    return &this->buttonRect;
+sf::RectangleShape& builder::Button::getDrawable() {
+    return this->buttonRect;
 }
 
 sf::Color builder::Button::getFillColour() const {

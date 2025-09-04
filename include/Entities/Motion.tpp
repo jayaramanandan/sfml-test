@@ -6,6 +6,12 @@
 #include "../utility/maths.hpp"
 
 namespace builder {
+    template<ValidType T>
+    EntityModule Motion<T>::getModule() {
+        return EntityModule::Motion;
+    }
+
+
     template <ValidType T>
     void Motion<T>::setFrameRateDetails(FrameRateDetails* details) {
         if(details->observedFrameRate > details->actualFrameRate) {
@@ -18,37 +24,37 @@ namespace builder {
 
     template <ValidType T>
     sf::Vector2f Motion<T>::getOrigin() {
-        return this->getDrawable()->getOrigin();
+        return this->getDrawable().getOrigin();
     }
 
     template <ValidType T>
     sf::Color Motion<T>::getColour() {
-        return this->getDrawable()->getColor();
+        return this->getDrawable().getColor();
     }
 
     template <ValidType T>
     sf::Vector2f Motion<T>::getPosition() {
-        return this->getDrawable()->getPosition();
+        return this->getDrawable().getPosition();
     }
 
     template <ValidType T>
     float Motion<T>::getRotation() {
-        return this->getDrawable()->getRotation();
+        return this->getDrawable().getRotation();
     }
 
     template <ValidType T>
     sf::Vector2f Motion<T>::getScale() {
-        return this->getDrawable()->getScale();
+        return this->getDrawable().getScale();
     }
 
     template <ValidType T>
     void Motion<T>::setOrigin(const float& x, const float& y) {
-        this->getDrawable()->setOrigin(x, y);
+        this->getDrawable().setOrigin(x, y);
     }
 
     template <ValidType T>
     void Motion<T>::setOriginToObjectCentre() {
-        const sf::FloatRect boundaryBox = this->getDrawable()->getGlobalBounds();
+        const sf::FloatRect boundaryBox = this->getDrawable().getGlobalBounds();
         this->setOrigin(
             boundaryBox.width / 2,
             boundaryBox.height / 2
@@ -57,27 +63,27 @@ namespace builder {
 
     template <ValidType T>
     void Motion<T>::setColour(const sf::Color& colour) {
-        this->getDrawable()->setColor(colour);
+        this->getDrawable().setColor(colour);
     }
 
     template <ValidType T>
     void Motion<T>::setPosition(const float& x, const float& y) {
-        this->getDrawable()->setPosition(x, y);
+        this->getDrawable().setPosition(x, y);
     }
 
     template <ValidType T>
     void Motion<T>::setRotation(const float& degrees) {
-        this->getDrawable()->setRotation(degrees);
+        this->getDrawable().setRotation(degrees);
     }
 
     template <ValidType T>
     void Motion<T>::setScale(const float& x, const float& y) {
-        this->getDrawable()->setScale(x, y);
+        this->getDrawable().setScale(x, y);
     }
 
     template <ValidType T>
     void Motion<T>::move(const float& x, const float&y) {
-        this->getDrawable()->move(x * this->multiplicationFactor, -y * multiplicationFactor);
+        this->getDrawable().move(x * this->multiplicationFactor, -y * multiplicationFactor);
     }
 
     template <ValidType T>
@@ -88,12 +94,12 @@ namespace builder {
 
     template <ValidType T>
     void Motion<T>::rotate(const float& degrees) {
-        this->getDrawable()->rotate(degrees * this->multiplicationFactor);
+        this->getDrawable().rotate(degrees * this->multiplicationFactor);
     }
 
     template <ValidType T>
     void Motion<T>::scale(const float& x, const float& y) {
-        this->getDrawable()->scale((x - 1) * this->multiplicationFactor + 1, (y - 1) * this->multiplicationFactor + 1);
+        this->getDrawable().scale((x - 1) * this->multiplicationFactor + 1, (y - 1) * this->multiplicationFactor + 1);
     }
 }
 

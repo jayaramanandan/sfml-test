@@ -16,6 +16,10 @@ namespace builder {
             Dictionary<Animation> animations{};
         
         public:
+            ~Animator() override = default;
+
+            EntityModule getModule() override;
+
             void startAnimation(const std::string& animationName);
             void startAnimation(const std::string& animationName, const float& speed);
 
