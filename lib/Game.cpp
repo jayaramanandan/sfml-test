@@ -1,5 +1,4 @@
 #include "../include/Game.hpp"
-
 #include "aliases.hpp"
 #include "../include/Entities/Motion.hpp"
 #include "../include/Entities/Animator.hpp"
@@ -35,7 +34,6 @@ void builder::Game::addSpriteTexture(const SpritePtr& sprite_ptr) {
         }
 
         this->textures.insert({texturePath, spriteTexture});
-        
     }
 
     sprite_ptr->getDrawable().setTexture(this->textures.at(texturePath));

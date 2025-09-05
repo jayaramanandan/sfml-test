@@ -15,8 +15,8 @@ namespace builder {
         static void setRenderWindow(sf::RenderWindow& windowValue);
 
         static ScenePtr& getCurrentScene();
-        template <class T>
-        static void setCurrentScene();
+        template<class T, typename... Args>
+        static void setCurrentScene(Args&&... args);
     };
 }
 

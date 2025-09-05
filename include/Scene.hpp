@@ -2,8 +2,10 @@
 #define SCENE_HPP
 
 #include "aliases.hpp"
+#include "Game.hpp"
 
 namespace builder {
+    // forward declaration may possibly be needed
     class Scene {
         private:
             SpritesArray sprites;

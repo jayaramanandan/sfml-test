@@ -1,0 +1,2 @@
+Remove Game class
+Do initiation module cheks in addEntity function using is_base_of_v
