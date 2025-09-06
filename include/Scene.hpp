@@ -2,10 +2,8 @@
 #define SCENE_HPP
 
 #include "aliases.hpp"
-#include "Game.hpp"
 
 namespace builder {
-    // forward declaration may possibly be needed
     class Scene {
         private:
             SpritesArray sprites;
@@ -16,6 +14,12 @@ namespace builder {
 
             [[nodiscard]] SpritesArray& getSprites();
             [[nodiscard]] ShapesArray& getShapes();
+
+            static void initiateEntity(const SpritePtr& sprite_ptr);
+            static void renderEntity(const SpritePtr& sprite_ptr);
+
+            void initiateEntities() const;
+            void renderEntities() const;
 
             template <class T, typename... Args>
             std::shared_ptr<T> addEntity(Args&&... args);

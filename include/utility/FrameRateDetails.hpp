@@ -3,8 +3,8 @@
 
 namespace builder {
     struct FrameRateDetails {
-        int observedFrameRate;
-        int actualFrameRate;
+        int observedFrameRate = 60;
+        int actualFrameRate = 60;
     };
 }
 

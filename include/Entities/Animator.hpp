@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Entity.hpp"
-#include "../utility/Dictionary.hpp"
+#include "utility/Dictionary.hpp"
 
 namespace builder {
     struct Animation {
@@ -20,7 +20,7 @@ namespace builder {
 
             EntityModule getModule() override;
 
-            void startAnimation(const std::string& animationName);
+            void setState(const std::string& animationName);
             void startAnimation(const std::string& animationName, const float& speed);
 
             void addAnimation(const std::string& name, const int frames[][4], const int& framesLength);

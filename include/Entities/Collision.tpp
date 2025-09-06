@@ -24,7 +24,7 @@ namespace builder {
 
     template<ValidType T>
     bool Collision<T>::mouseHovering() {
-        const sf::Vector2i mousePos = sf::Mouse::getPosition(*GameManager::getRenderWindow());
+        const sf::Vector2i mousePos = sf::Mouse::getPosition(*GameManager::getWindow());
         return this->getDrawable().getGlobalBounds().contains(
             static_cast<float>(mousePos.x),
             static_cast<float>(mousePos.y)

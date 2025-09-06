@@ -16,15 +16,12 @@ add_library(
         SfmlWrapper STATIC
         test/scenes/Scene1/sprites/Player.cpp
         lib/Entities/Animator.cpp
-        lib/Game.cpp
         lib/Entities/Sprite.cpp
         lib/utility/maths.cpp
-        test/BowlGame.cpp
         lib/UI/Button.cpp
         lib/Scene.cpp
         test/scenes/Scene1/Scene1.cpp
         lib/GameManager.cpp
-        include/utility/EntityModule.hpp
         test/scenes/Scene2/Scene2.cpp
         test/scenes/Scene2/Scene2.hpp
 )

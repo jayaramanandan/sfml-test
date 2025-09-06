@@ -1,13 +1,13 @@
 #include <iostream>
 #include <cmath>
-#include "../../include/Entities/Animator.hpp"
+#include "Entities/Animator.hpp"
 
 builder::EntityModule builder::Animator::getModule() {
     return EntityModule::Animator;
 }
 
 
-void builder::Animator::startAnimation(const std::string& animationName) {
+void builder::Animator::setState(const std::string& animationName) {
     this->getDrawable().setTextureRect(this->animations.at(animationName).frames[0]);
 }
 

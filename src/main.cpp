@@ -1,18 +1,23 @@
-#include "../test/BowlGame.hpp"
-#include "../include/utility/WindowDetails.hpp"
-#include "../include/utility/FrameRateDetails.hpp"
+#include <iostream>
+#include "GameManager.hpp"
+#include "../test/scenes/Scene1/Scene1.hpp"
+#include "utility/WindowDetails.hpp"
 
 int main() {
     builder::WindowDetails windowDetails;
-    builder::FrameRateDetails frameRateDetails{};
 
     windowDetails.windowTitle = "Bowl Catcher";
     windowDetails.width = 800;
     windowDetails.height = 800;
-    frameRateDetails.observedFrameRate = 30;
-    frameRateDetails.actualFrameRate = 60;
+    windowDetails.actualFrameRate = 60;
+    windowDetails.observedFrameRate = 30;
 
-    BowlGame game(windowDetails, frameRateDetails);
+    builder::GameManager::createWindow(windowDetails);
+
+    builder::GameManager::setCurrentScene<Scene1>();
+    builder::GameManager::setFrameRateDetails(windowDetails);
+
+    builder::GameManager::run();
 
     return 0;
 }

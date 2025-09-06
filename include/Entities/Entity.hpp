@@ -2,7 +2,7 @@
 #define ENTITY_HPP
 
 #include "SFML/Graphics.hpp"
-#include "../utility/EntityModule.hpp"
+#include "utility/EntityModule.hpp"
 
 namespace builder {
     template <class T>

@@ -3,21 +3,19 @@
 
 #include "Entity.hpp"
 #include "SFML/Graphics.hpp"
-#include "../utility/FrameRateDetails.hpp"
+#include "utility/FrameRateDetails.hpp"
 
 namespace builder {
     template <ValidType T>
     class Motion : public Entity<T> {
         private:
-            FrameRateDetails*frameRateDetails = nullptr;
             float multiplicationFactor = 1;
         
         public:
+            Motion();
             ~Motion() override = default;
 
             EntityModule getModule() override;
-
-            void setFrameRateDetails(FrameRateDetails* details);
 
             sf::Vector2f getOrigin();
             sf::Color getColour();

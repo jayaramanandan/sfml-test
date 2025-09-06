@@ -1,4 +1,4 @@
-#include "../include/UI/Button.hpp"
+#include "UI/Button.hpp"
 
 builder::Button::Button(const float& width, const float& height) :
 buttonRect(sf::Vector2f(width, height)) {}

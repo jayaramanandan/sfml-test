@@ -1,25 +1,24 @@
 #ifndef MOTION_TPP
 #define MOTION_TPP
-
 #include <iostream>
+#include "GameManager.hpp"
 #include "Motion.hpp"
-#include "../utility/maths.hpp"
+#include "utility/maths.hpp"
 
 namespace builder {
     template<ValidType T>
-    EntityModule Motion<T>::getModule() {
-        return EntityModule::Motion;
-    }
-
-
-    template <ValidType T>
-    void Motion<T>::setFrameRateDetails(FrameRateDetails* details) {
-        if(details->observedFrameRate > details->actualFrameRate) {
+    Motion<T>::Motion() {
+        const auto [observedFrameRate, actualFrameRate] = GameManager::getFrameRateDetails();
+        if(observedFrameRate > actualFrameRate) {
             std::cerr << "The observed frame rate is greater than the actual frame rate" << std::endl;
         }
 
-        this->frameRateDetails = details;
-        this->multiplicationFactor = static_cast<float>(this->frameRateDetails->observedFrameRate) / static_cast<float>(this->frameRateDetails->actualFrameRate);
+        this->multiplicationFactor = static_cast<float>(observedFrameRate) / static_cast<float>(actualFrameRate);
+    }
+
+    template<ValidType T>
+    EntityModule Motion<T>::getModule() {
+        return EntityModule::Motion;
     }
 
     template <ValidType T>
