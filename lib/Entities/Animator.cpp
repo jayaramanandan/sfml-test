@@ -6,21 +6,28 @@ builder::EntityModule builder::Animator::getModule() {
     return EntityModule::Animator;
 }
 
-
 void builder::Animator::setState(const std::string& animationName) {
     this->getDrawable().setTextureRect(this->animations.at(animationName).frames[0]);
 }
 
-void builder::Animator::startAnimation(const std::string& animationName, const float& speed) {
-    auto [frames, clock] = this->animations.at(animationName);
+void builder::Animator::playAnimation(const std::string& animationName, const float& delay) {
+    if (!this->animations.contains(animationName)) throw std::invalid_argument("No animation named: '" + animationName + "'");
+
+    auto* animation = &this->animations.at(animationName);
 
     const int index = std::floor(
-        clock.getElapsedTime().asSeconds() / speed
+        animation->clock.getElapsedTime().asSeconds() / delay
     );
 
-    if(index < animations.size()) {
-        this->getDrawable().setTextureRect(frames[index]);
+    if(index < animation->frames.size()) {
+        this->getDrawable().setTextureRect(animation->frames[index]);
+    } else {
+        animation->clock.restart();
     }
+}
+
+void builder::Animator::resetAnimation(const std::string& animationName) {
+        this->animations.at(animationName).clock.restart();
 }
 
 void builder::Animator::addAnimation(const std::string& name, const int frames[][4], const int& framesLength) {

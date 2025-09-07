@@ -24,8 +24,12 @@ namespace builder {
         static void createWindow(const WindowDetails& windowDetails);
 
         static ScenePtr& getCurrentScene();
+
         template<class T, typename... Args>
-        static void setCurrentScene(Args&&... args);
+        static void setStartingScene(Args&&... args);
+
+        template<class T, typename... Args>
+        static void changeScene(Args&&... args);
 
         static FrameRateDetails& getFrameRateDetails();
         static void setFrameRateDetails(const FrameRateDetails& frameRateDetailsValue);

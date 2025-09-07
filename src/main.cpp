@@ -13,9 +13,8 @@ int main() {
     windowDetails.observedFrameRate = 30;
 
     builder::GameManager::createWindow(windowDetails);
-
-    builder::GameManager::setCurrentScene<Scene1>();
     builder::GameManager::setFrameRateDetails(windowDetails);
+    builder::GameManager::setStartingScene<Scene1>();
 
     builder::GameManager::run();
 

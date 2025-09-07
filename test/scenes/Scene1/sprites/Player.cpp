@@ -18,6 +18,7 @@ sf::Sprite& Player::getDrawable() {
 
 void Player::init() {
     constexpr int frames[1][4] = {{1, 1, 14, 5}};
+
     this->addAnimation("idle", frames, 1);
     this->setState("idle");
 
@@ -26,8 +27,6 @@ void Player::init() {
 }
 
 void Player::update() {
-    this->startAnimation("idle", 1);
-
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
         this->rotate(1);
     }
@@ -42,9 +41,8 @@ void Player::update() {
     }
 
 
-    /*
     if (this->player2 != nullptr && this->isColliding(*this->player2)) {
-        builder::GameManager::setCurrentScene<Scene2>();
-    }*/
+        builder::GameManager::changeScene<Scene2>();
+    }
 
 }

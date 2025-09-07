@@ -10,6 +10,7 @@
 class Player : public builder::Sprite, public builder::Animator, public builder::SpriteMotion, public builder::SpriteCollision {
     private:
         builder::SpritePtr player2{};
+        bool moving = false;
 
     public:
         Player(const float& x, const float& y);

@@ -1,4 +1,3 @@
 Remove Game class
 Do initiation module checks in addEntity function using is_base_of_v
-Remove sf::Clock for animation clocks and create own clock to count frames
 Rework collision events e.g. clicking

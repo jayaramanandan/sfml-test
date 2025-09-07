@@ -11,6 +11,8 @@ FetchContent_MakeAvailable(SFML)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED true)
 set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address -g")
+set(CMAKE_LINKER_FLAGS "${CMAKE_LINKER_FLAGS} -fsanitize=address")
 
 add_library(
         SfmlWrapper STATIC
@@ -23,7 +25,6 @@ add_library(
         test/scenes/Scene1/Scene1.cpp
         lib/GameManager.cpp
         test/scenes/Scene2/Scene2.cpp
-        test/scenes/Scene2/Scene2.hpp
 )
 
 target_include_directories(

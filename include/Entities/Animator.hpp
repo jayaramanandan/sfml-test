@@ -21,7 +21,8 @@ namespace builder {
             EntityModule getModule() override;
 
             void setState(const std::string& animationName);
-            void startAnimation(const std::string& animationName, const float& speed);
+            void playAnimation(const std::string& animationName, const float& delay);
+            void resetAnimation(const std::string& animationName);
 
             void addAnimation(const std::string& name, const int frames[][4], const int& framesLength);
             void addAnimation(const std::string& name, const int frames[][2], const int& framesLength, const int frameSize[2]);
