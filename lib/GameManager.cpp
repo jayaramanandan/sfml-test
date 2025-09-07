@@ -3,9 +3,11 @@
 
 namespace builder {
     WindowPtr GameManager::window;
-    ScenePtr GameManager::currentScene;
+    ScenesArray GameManager::scenes;
+    int GameManager::currentSceneIndex = 0;
     FrameRateDetails GameManager::frameRateDetails;
     Dictionary<sf::Texture> GameManager::textures;
+    bool GameManager::usingCache = false;
     bool GameManager::breakLoop = false;
 
     WindowPtr& GameManager::getWindow() {
@@ -19,8 +21,14 @@ namespace builder {
     }
 
     ScenePtr& GameManager::getCurrentScene() {
-        return currentScene;
+        return scenes[currentSceneIndex];
     }
+
+    void GameManager::setCurrentScene(const int& currentSceneIndexValue) {
+        currentSceneIndex = currentSceneIndexValue;
+        breakLoop = true;
+    }
+
 
     FrameRateDetails& GameManager::getFrameRateDetails() {
         return frameRateDetails;
@@ -46,6 +54,10 @@ namespace builder {
         }
 
         sprite_ptr->getDrawable().setTexture(textures.at(texturePath));
+    }
+
+    void GameManager::useCache() {
+        usingCache = true;
     }
 
     void GameManager::run() {

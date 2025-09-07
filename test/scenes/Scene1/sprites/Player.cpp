@@ -1,6 +1,5 @@
 #include "Player.hpp"
 #include "GameManager.hpp"
-#include "../../Scene2/Scene2.hpp"
 
 Player::Player(const float& x, const float& y) : Sprite("assets/Bowl.png") {
     this->setPosition(x, y);
@@ -41,8 +40,8 @@ void Player::update() {
     }
 
 
-    if (this->player2 != nullptr && this->isColliding(*this->player2)) {
-        builder::GameManager::changeScene<Scene2>();
+    if (this->player2 != nullptr && this->isColliding(this->player2)) {
+        builder::GameManager::setCurrentScene(1);
     }
 
 }

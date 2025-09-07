@@ -14,8 +14,6 @@ namespace builder {
         public:
             explicit Sprite(const std::string& textureFilePath);
 
-            EntityModule getModule() override;
-
             sf::Sprite& getSfSprite();
 
             // customisable by user

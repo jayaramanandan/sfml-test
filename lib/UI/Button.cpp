@@ -16,11 +16,6 @@ void builder::Button::setFillColour(const sf::Color& colour) {
 }
 
 void builder::Button::update() {
-    if (this->mouseHovering()) this->onHover();
-    // ReSharper disable once CppDFAConstantConditions
-    // ReSharper disable once CppDFAUnreachableCode
-    if (this->isClicking()) this->onClick();
-    if (this->leftMouseDown()) this->onMouseDown();
 }
 
 void builder::Button::onHover() {}

@@ -13,7 +13,7 @@ builder::ShapesArray& builder::Scene::getShapes() {
 void builder::Scene::initiateEntity(const SpritePtr& sprite_ptr) {
     if (!sprite_ptr) throw std::invalid_argument("Sprite pointer is null");
 
-    GameManager::addSpriteTexture(sprite_ptr); // continue here
+    GameManager::addSpriteTexture(sprite_ptr);
     sprite_ptr->init();
 
     if (const auto* sprite = dynamic_cast<Animator*>(sprite_ptr.get())) {
@@ -48,4 +48,9 @@ void builder::Scene::renderEntities() const {
     for (const auto& sprite_ptr : this->sprites) {
         renderEntity(sprite_ptr);
     }
+
+    /*
+    for (const auto& shape_ptr : this->uiElements) {
+        renderEntity(shape_ptr);
+    }*/
 }

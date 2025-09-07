@@ -15,8 +15,6 @@ namespace builder {
             Motion();
             ~Motion() override = default;
 
-            EntityModule getModule() override;
-
             sf::Vector2f getOrigin();
             sf::Color getColour();
             sf::Vector2f getPosition();

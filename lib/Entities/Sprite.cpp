@@ -4,11 +4,6 @@ builder::Sprite::Sprite(const std::string& textureFilePath) {
     this->texturePath = textureFilePath;
 }
 
-builder::EntityModule builder::Sprite::getModule() {
-    return EntityModule::Sprite;
-}
-
-
 std::string builder::Sprite::getTexturePath() const {
     return this->texturePath;
 }

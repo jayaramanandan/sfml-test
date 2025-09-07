@@ -1,6 +1,6 @@
-#include <iostream>
 #include "GameManager.hpp"
 #include "../test/scenes/Scene1/Scene1.hpp"
+#include "../test/scenes/Scene2/Scene2.hpp"
 #include "utility/WindowDetails.hpp"
 
 int main() {
@@ -14,7 +14,9 @@ int main() {
 
     builder::GameManager::createWindow(windowDetails);
     builder::GameManager::setFrameRateDetails(windowDetails);
-    builder::GameManager::setStartingScene<Scene1>();
+
+    builder::GameManager::addScene<Scene1>();
+    builder::GameManager::addScene<Scene2>();
 
     builder::GameManager::run();
 

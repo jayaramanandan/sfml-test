@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <unordered_set>
+#include <vector>
 #include "SFML/Graphics.hpp"
 #include "Entities/Sprite.hpp"
 
@@ -11,10 +12,13 @@ namespace builder {
 
     using SpritePtr = std::shared_ptr<Sprite>;
     using ShapePtr = std::shared_ptr<sf::Shape>;
-    using SpritesArray = std::unordered_set<SpritePtr>;
-    using ShapesArray = std::unordered_set<ShapePtr>;
     using ScenePtr = std::shared_ptr<Scene>; // circular definition
     using WindowPtr = std::shared_ptr<sf::RenderWindow>;
+
+    using SpritesArray = std::unordered_set<SpritePtr>;
+    using ShapesArray = std::unordered_set<ShapePtr>;
+    using ScenesArray = std::vector<ScenePtr>;
+
     using Event = sf::Event;
 }
 

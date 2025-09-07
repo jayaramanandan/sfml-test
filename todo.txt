@@ -1,3 +1,4 @@
-Remove Game class
-Do initiation module checks in addEntity function using is_base_of_v
 Rework collision events e.g. clicking
+create cache of all sprites that inherit collision class
+Create settings struct for GameManager settings
+add uiElements rendering

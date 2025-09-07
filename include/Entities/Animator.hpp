@@ -18,8 +18,6 @@ namespace builder {
         public:
             ~Animator() override = default;
 
-            EntityModule getModule() override;
-
             void setState(const std::string& animationName);
             void playAnimation(const std::string& animationName, const float& delay);
             void resetAnimation(const std::string& animationName);

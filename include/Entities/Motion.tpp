@@ -16,11 +16,6 @@ namespace builder {
         this->multiplicationFactor = static_cast<float>(observedFrameRate) / static_cast<float>(actualFrameRate);
     }
 
-    template<ValidType T>
-    EntityModule Motion<T>::getModule() {
-        return EntityModule::Motion;
-    }
-
     template <ValidType T>
     sf::Vector2f Motion<T>::getOrigin() {
         return this->getDrawable().getOrigin();

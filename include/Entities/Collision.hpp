@@ -3,31 +3,16 @@
 
 #include "SFML/Graphics.hpp"
 #include "Entity.hpp"
-#include "Sprite.hpp"
 
 namespace builder {
-    struct Listeners {
-        bool hover = false;
-        bool click = false;
-        bool mouseDown = false;
-    };
-
     template <ValidType T>
     class Collision : public Entity<T>{
-        private:
-            bool clicking = false;
-
         public:
             ~Collision() override = default;
 
-            EntityModule getModule() override;
+            virtual bool checkClicks();
 
-            void setIsClicking(const bool& newValue);
-
-            bool isColliding(Sprite& sprite);
-            bool mouseHovering();
-            [[nodiscard]] bool isClicking() const;
-            bool leftMouseDown();
+            bool isColliding(const SpritePtr& sprite_ptr);
     };
 
     using SpriteCollision = Collision<sf::Sprite>;

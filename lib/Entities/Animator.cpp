@@ -2,10 +2,6 @@
 #include <cmath>
 #include "Entities/Animator.hpp"
 
-builder::EntityModule builder::Animator::getModule() {
-    return EntityModule::Animator;
-}
-
 void builder::Animator::setState(const std::string& animationName) {
     this->getDrawable().setTextureRect(this->animations.at(animationName).frames[0]);
 }
