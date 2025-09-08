@@ -10,10 +10,9 @@ int main() {
     windowDetails.width = 800;
     windowDetails.height = 800;
     windowDetails.actualFrameRate = 60;
-    windowDetails.observedFrameRate = 30;
+    windowDetails.observedFrameRate = 60;
 
     builder::GameManager::createWindow(windowDetails);
-    builder::GameManager::setFrameRateDetails(windowDetails);
 
     builder::GameManager::addScene<Scene1>();
     builder::GameManager::addScene<Scene2>();

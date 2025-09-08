@@ -3,7 +3,6 @@
 
 #include "Entity.hpp"
 #include "SFML/Graphics.hpp"
-#include "utility/FrameRateDetails.hpp"
 
 namespace builder {
     template <ValidType T>

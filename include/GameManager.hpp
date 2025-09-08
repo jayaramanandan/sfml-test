@@ -4,7 +4,6 @@
 #include <memory>
 #include "SFML/Graphics.hpp"
 #include "aliases.hpp"
-#include "utility/FrameRateDetails.hpp"
 #include "utility/Dictionary.hpp"
 #include "utility/WindowDetails.hpp"
 
@@ -14,7 +13,7 @@ namespace builder {
         static WindowPtr window;
         static ScenesArray scenes;
         static int currentSceneIndex;
-        static FrameRateDetails frameRateDetails;
+        static WindowDetails windowDetails;
         static Dictionary<sf::Texture> textures;
         static bool usingCache;
         static bool breakLoop;
@@ -23,7 +22,7 @@ namespace builder {
         GameManager() = delete; // stops class being initiated (static class)
 
         static WindowPtr& getWindow();
-        static void createWindow(const WindowDetails& windowDetails);
+        static void createWindow(const WindowDetails& details);
 
         static ScenePtr& getCurrentScene();
         static void setCurrentScene(const int& currentSceneIndexValue);
@@ -31,8 +30,8 @@ namespace builder {
         template<class T, typename... Args>
         static void addScene(Args&&... args);
 
-        static FrameRateDetails& getFrameRateDetails();
-        static void setFrameRateDetails(const FrameRateDetails& frameRateDetailsValue);
+        static WindowDetails& getWindowDetails();
+        static void setFrameRateDetails(const int& actualFrameRate, const int& observedFrameRate);
 
         static void addSpriteTexture(const SpritePtr& sprite_ptr);
 

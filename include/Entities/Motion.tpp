@@ -8,12 +8,12 @@
 namespace builder {
     template<ValidType T>
     Motion<T>::Motion() {
-        const auto [observedFrameRate, actualFrameRate] = GameManager::getFrameRateDetails();
-        if(observedFrameRate > actualFrameRate) {
+        const WindowDetails& details = GameManager::getWindowDetails();
+        if(details.observedFrameRate > details.actualFrameRate) {
             std::cerr << "The observed frame rate is greater than the actual frame rate" << std::endl;
         }
 
-        this->multiplicationFactor = static_cast<float>(observedFrameRate) / static_cast<float>(actualFrameRate);
+        this->multiplicationFactor = static_cast<float>(details.observedFrameRate) / static_cast<float>(details.actualFrameRate);
     }
 
     template <ValidType T>

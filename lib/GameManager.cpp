@@ -5,7 +5,7 @@ namespace builder {
     WindowPtr GameManager::window;
     ScenesArray GameManager::scenes;
     int GameManager::currentSceneIndex = 0;
-    FrameRateDetails GameManager::frameRateDetails;
+    WindowDetails GameManager::windowDetails;
     Dictionary<sf::Texture> GameManager::textures;
     bool GameManager::usingCache = false;
     bool GameManager::breakLoop = false;
@@ -14,10 +14,9 @@ namespace builder {
         return window;
     }
 
-    void GameManager::createWindow(const WindowDetails& windowDetails) {
-        window = std::make_shared<sf::RenderWindow>(sf::VideoMode(windowDetails.width, windowDetails.height), windowDetails.windowTitle);
-        frameRateDetails.actualFrameRate = windowDetails.actualFrameRate;
-        frameRateDetails.observedFrameRate = windowDetails.observedFrameRate;
+    void GameManager::createWindow(const WindowDetails& details) {
+        window = std::make_shared<sf::RenderWindow>(sf::VideoMode(details.width, details.height), details.windowTitle);
+        windowDetails = details;
     }
 
     ScenePtr& GameManager::getCurrentScene() {
@@ -30,12 +29,13 @@ namespace builder {
     }
 
 
-    FrameRateDetails& GameManager::getFrameRateDetails() {
-        return frameRateDetails;
+    WindowDetails& GameManager::getWindowDetails() {
+        return windowDetails;
     }
 
-    void GameManager::setFrameRateDetails(const FrameRateDetails& frameRateDetailsValue) {
-        frameRateDetails = frameRateDetailsValue;
+    void GameManager::setFrameRateDetails(const int& actualFrameRate, const int& observedFrameRate) {
+        windowDetails.actualFrameRate = actualFrameRate;
+        windowDetails.actualFrameRate = observedFrameRate;
     }
 
     void GameManager::addSpriteTexture(const SpritePtr& sprite_ptr) {
