@@ -1,7 +1,7 @@
 Rework collision events e.g. clicking
 create cache of all sprites that inherit collision class
 add uiElements rendering
-rework addEntity to point to an object
+rework addEntity to take in a template
 add constexpr
 wrap all cpp files in namespace builder
 clean up includes

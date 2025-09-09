@@ -19,7 +19,6 @@ add_library(
         test/scenes/Scene1/sprites/Player.cpp
         lib/Entities/Animator.cpp
         lib/Entities/Sprite.cpp
-        lib/utility/maths.cpp
         lib/UI/Button.cpp
         lib/Scene.cpp
         test/scenes/Scene1/Scene1.cpp
