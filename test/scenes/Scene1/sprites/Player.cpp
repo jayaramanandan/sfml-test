@@ -16,9 +16,9 @@ sf::Sprite& Player::getDrawable() {
 
 
 void Player::init() {
-    constexpr int frames[1][4] = {{1, 1, 14, 5}};
+    const builder::Frames frames = {{1, 1, 14, 5}};
 
-    this->addAnimation("idle", frames, 1);
+    this->addAnimation("idle", frames);
     this->setState("idle");
 
     this->setOriginToObjectCentre();
@@ -38,7 +38,6 @@ void Player::update() {
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
         this->moveInCurrentDirection(-1);
     }
-
 
     if (this->player2 != nullptr && this->isColliding(this->player2)) {
         builder::GameManager::setCurrentScene(1);

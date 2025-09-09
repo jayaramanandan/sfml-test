@@ -1,5 +1,6 @@
 #ifndef ENTITY_TPP
 #define ENTITY_TPP
+
 #include "Entity.hpp"
 
 namespace builder {
@@ -8,8 +9,6 @@ namespace builder {
 
     template<ValidType T>
     void Entity<T>::update() {}
-
-
 }
 
 #endif

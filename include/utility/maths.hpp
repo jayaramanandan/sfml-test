@@ -17,7 +17,7 @@ namespace builder {
 
     constexpr Components getComponents(const float magnitude, const float degrees) {
         const float angleRad = toRad(degrees);
-        return { magnitude * std::cos(angleRad), magnitude * std::sin(angleRad) };
+        return { magnitude * std::sin(angleRad), magnitude * std::cos(angleRad) };
     }
 }
 

@@ -15,8 +15,6 @@ namespace builder {
             sprite_ptr->getDrawable().getGlobalBounds()
         );
     }
-
-
 }
 
 #endif

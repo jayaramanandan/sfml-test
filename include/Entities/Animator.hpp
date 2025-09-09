@@ -1,9 +1,10 @@
 #ifndef ANIMATOR_H
 #define ANIMATOR_H
-
 #include <array>
 #include <vector>
 #include <SFML/Graphics.hpp>
+
+#include "aliases.hpp"
 #include "Entity.hpp"
 #include "utility/Dictionary.hpp"
 
@@ -24,8 +25,8 @@ namespace builder {
             void playAnimation(const std::string& animationName, float delay);
             void resetAnimation(const std::string& animationName);
 
-            void addAnimation(const std::string& name, const std::vector<std::array<int, 4>>& frames);
-            void addAnimation(const std::string& name, const std::vector<std::array<int, 2>>& frames, const int frameSize[2]);
+            void addAnimation(const std::string& name, const Frames& frames);
+            void addAnimation(const std::string& name, const ConsistentFrames& frames, const int frameSize[2]);
 
             void deleteAnimation(const std::string& name);
 

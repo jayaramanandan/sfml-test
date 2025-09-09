@@ -1,4 +1,5 @@
 #include "GameManager.hpp"
+
 #include <iostream>
 #include <filesystem>
 
@@ -55,7 +56,6 @@ namespace builder {
     sf::Texture& GameManager::getSpriteTexture(const std::string& texturePath) {
         return textures.at(texturePath);
     }
-
 
     void GameManager::run() {
         const ScenePtr currentScene = getCurrentScene();

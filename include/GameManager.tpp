@@ -1,8 +1,9 @@
 #ifndef GAMEMANAGER_TPP
 #define GAMEMANAGER_TPP
 
-#include <memory>
 #include "GameManager.hpp"
+
+#include <memory>
 #include "Scene.hpp"
 
 namespace builder {

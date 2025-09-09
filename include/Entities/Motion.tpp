@@ -1,8 +1,10 @@
 #ifndef MOTION_TPP
 #define MOTION_TPP
+
+#include "Motion.hpp"
+
 #include <iostream>
 #include "GameManager.hpp"
-#include "Motion.hpp"
 #include "utility/maths.hpp"
 
 namespace builder {

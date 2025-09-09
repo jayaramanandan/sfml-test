@@ -19,6 +19,9 @@ namespace builder {
     using ShapesArray = std::unordered_set<ShapePtr>;
     using ScenesArray = std::vector<ScenePtr>;
 
+    using Frames = const std::vector<std::array<int, 4>>;
+    using ConsistentFrames = const std::vector<std::array<int, 2>>;
+
     using Event = sf::Event;
 }
 

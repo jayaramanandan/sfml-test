@@ -1,10 +1,10 @@
 #ifndef SCENE_TPP
 #define SCENE_TPP
 
-#include <memory>
-#include <type_traits>
 #include "Scene.hpp"
 
+#include <memory>
+#include <type_traits>
 
 namespace builder {
     template<class T, typename... Args>
@@ -24,7 +24,6 @@ namespace builder {
 
         return entity_ptr;
     }
-
 }
 
 #endif
