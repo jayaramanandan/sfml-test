@@ -21,8 +21,8 @@ namespace builder {
             void initiateEntities() const;
             void renderEntities() const;
 
-            template <class T, typename... Args>
-            std::shared_ptr<T> addEntity(Args&&... args);
+            template <class T>
+            void addEntity(T& entity);
 
     };
 }

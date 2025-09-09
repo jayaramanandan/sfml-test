@@ -10,8 +10,8 @@
 namespace builder {
     class Scene;
 
-    using SpritePtr = std::shared_ptr<Sprite>;
-    using ShapePtr = std::shared_ptr<sf::Shape>;
+    using SpritePtr = Sprite*;
+    using ShapePtr = sf::Shape*;
     using ScenePtr = std::shared_ptr<Scene>; // circular definition
     using WindowPtr = std::shared_ptr<sf::RenderWindow>;
 

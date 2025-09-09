@@ -13,8 +13,8 @@ class Player : public builder::Sprite, public builder::Animator, public builder:
         bool moving = false;
 
     public:
-        Player(const float& x, const float& y);
-        Player(const float& x, const float& y, const builder::SpritePtr& player2);
+        Player(float x, float y);
+        Player(float x, float y, Player& player2);
 
         sf::Sprite& getDrawable() override;
 

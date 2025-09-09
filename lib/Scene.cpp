@@ -21,7 +21,7 @@ namespace builder {
 
         sprite_ptr->init();
 
-        if (auto* sprite = dynamic_cast<Animator*>(sprite_ptr.get())) {
+        if (auto* sprite = dynamic_cast<Animator*>(sprite_ptr)) {
             sprite->startAnimationClocks();
         }
     }
