@@ -14,6 +14,8 @@ int main() {
 
     builder::GameManager::createWindow(windowDetails);
 
+    builder::GameManager::setSpriteTextures("assets");
+
     builder::GameManager::addScene<Scene1>();
     builder::GameManager::addScene<Scene2>();
 

@@ -13,7 +13,10 @@ builder::ShapesArray& builder::Scene::getShapes() {
 void builder::Scene::initiateEntity(const SpritePtr& sprite_ptr) {
     if (!sprite_ptr) throw std::invalid_argument("Sprite pointer is null");
 
-    GameManager::addSpriteTexture(sprite_ptr);
+    sprite_ptr->getDrawable().setTexture(
+        GameManager::getSpriteTexture(sprite_ptr->getTexturePath())
+    );
+
     sprite_ptr->init();
 
     if (const auto* sprite = dynamic_cast<Animator*>(sprite_ptr.get())) {

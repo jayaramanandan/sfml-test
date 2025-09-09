@@ -2,6 +2,7 @@
 #define WINDOWMANAGER_HPP
 
 #include <memory>
+#include <string>
 #include "SFML/Graphics.hpp"
 #include "aliases.hpp"
 #include "utility/Dictionary.hpp"
@@ -15,7 +16,6 @@ namespace builder {
         static int currentSceneIndex;
         static WindowDetails windowDetails;
         static Dictionary<sf::Texture> textures;
-        static bool usingCache;
         static bool breakLoop;
 
     public:
@@ -33,9 +33,8 @@ namespace builder {
         static WindowDetails& getWindowDetails();
         static void setFrameRateDetails(const int& actualFrameRate, const int& observedFrameRate);
 
-        static void addSpriteTexture(const SpritePtr& sprite_ptr);
-
-        static void useCache();
+        static void setSpriteTextures(const std::string& directoryPath);
+        static sf::Texture& getSpriteTexture(const std::string& texturePath);
 
         static void run();
     };

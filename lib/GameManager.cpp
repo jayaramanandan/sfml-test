@@ -1,5 +1,6 @@
 #include "GameManager.hpp"
 #include <iostream>
+#include <filesystem>
 
 namespace builder {
     WindowPtr GameManager::window;
@@ -7,7 +8,6 @@ namespace builder {
     int GameManager::currentSceneIndex = 0;
     WindowDetails GameManager::windowDetails;
     Dictionary<sf::Texture> GameManager::textures;
-    bool GameManager::usingCache = false;
     bool GameManager::breakLoop = false;
 
     WindowPtr& GameManager::getWindow() {
@@ -38,27 +38,24 @@ namespace builder {
         windowDetails.actualFrameRate = observedFrameRate;
     }
 
-    void GameManager::addSpriteTexture(const SpritePtr& sprite_ptr) {
-        if (!sprite_ptr) throw std::invalid_argument("Sprite pointer is null");
+    void GameManager::setSpriteTextures(const std::string& directoryPath) {
+        for (const auto& entry : std::filesystem::recursive_directory_iterator(directoryPath)) {
+            if(const std::string texturePath = entry.path().string(); !textures.contains(texturePath) && entry.is_regular_file()) {
+                sf::Texture spriteTexture;
 
-        std::string texturePath = sprite_ptr->getTexturePath();
+                if(!spriteTexture.loadFromFile(texturePath)) {
+                    std::cerr << "Unable to load texture: " << texturePath << "\n\n";
+                }
 
-        if(!textures.contains(texturePath)) { // checks to see if the texture path has already been stored
-            sf::Texture spriteTexture;
-
-            if(!spriteTexture.loadFromFile(texturePath)) {
-                std::cerr << "Unable to load texture: " << texturePath << "\n\n";
+                textures.insert({texturePath, spriteTexture});
             }
-
-            textures.insert({texturePath, spriteTexture});
         }
-
-        sprite_ptr->getDrawable().setTexture(textures.at(texturePath));
     }
 
-    void GameManager::useCache() {
-        usingCache = true;
+    sf::Texture& GameManager::getSpriteTexture(const std::string& texturePath) {
+        return textures.at(texturePath);
     }
+
 
     void GameManager::run() {
         const ScenePtr currentScene = getCurrentScene();
