@@ -1,7 +1,7 @@
 #ifndef MOTION_H
 #define MOTION_H
 
-#include "Entity.hpp"
+#include "../Entity/Entity.hpp"
 #include "SFML/Graphics.hpp"
 
 namespace builder {

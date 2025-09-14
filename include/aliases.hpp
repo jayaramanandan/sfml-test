@@ -5,7 +5,7 @@
 #include <unordered_set>
 #include <vector>
 #include "SFML/Graphics.hpp"
-#include "Entities/Sprite.hpp"
+#include "Entities/Sprite/Sprite.hpp"
 
 namespace builder {
     class Scene;

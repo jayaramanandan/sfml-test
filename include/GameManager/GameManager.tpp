@@ -4,7 +4,7 @@
 #include "GameManager.hpp"
 
 #include <memory>
-#include "Scene.hpp"
+#include "../Scene/Scene.hpp"
 
 namespace builder {
     template<class T, typename... Args>

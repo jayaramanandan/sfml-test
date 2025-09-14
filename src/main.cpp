@@ -1,4 +1,4 @@
-#include "GameManager.hpp"
+#include "../include/GameManager/GameManager.hpp"
 #include "../test/scenes/Scene1/Scene1.hpp"
 #include "../test/scenes/Scene2/Scene2.hpp"
 #include "utility/WindowDetails.hpp"

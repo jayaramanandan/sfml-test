@@ -3,7 +3,7 @@
 
 #include <string>
 #include <SFML/Graphics.hpp>
-#include "Entity.hpp"
+#include "../Entity/Entity.hpp"
 
 namespace builder {
     class Sprite : public SpriteEntity {

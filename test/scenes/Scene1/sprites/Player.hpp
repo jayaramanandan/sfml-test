@@ -2,12 +2,14 @@
 #define PLAYER_H
 
 #include "aliases.hpp"
-#include "Entities/Sprite.hpp"
-#include "Entities/Animator.hpp"
-#include "Entities/Motion.hpp"
-#include "Entities/Collision.hpp"
+#include "Entities/Sprite/Sprite.hpp"
+#include "Entities/Animator/Animator.hpp"
+#include "Entities/Motion/Motion.hpp"
+#include "Entities/Collision/Collision.hpp"
+#include "Entities/Listener/Listener.hpp"
+#include "Entities/Listener/listeners/ClickListener.hpp"
 
-class Player : public builder::Sprite, public builder::Animator, public builder::SpriteMotion, public builder::SpriteCollision {
+class Player : public builder::Sprite, public builder::Animator, public builder::SpriteMotion, public builder::SpriteCollision, public builder::Listener<builder::ClickListener> {
     private:
         builder::SpritePtr player2{};
         bool moving = false;

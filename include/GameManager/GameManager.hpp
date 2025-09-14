@@ -4,9 +4,9 @@
 #include <memory>
 #include <string>
 #include "SFML/Graphics.hpp"
-#include "aliases.hpp"
-#include "utility/Dictionary.hpp"
-#include "utility/WindowDetails.hpp"
+#include "../aliases.hpp"
+#include "../utility/Dictionary.hpp"
+#include "../utility/WindowDetails.hpp"
 
 namespace builder {
     class GameManager {

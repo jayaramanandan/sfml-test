@@ -1,4 +1,4 @@
-#include "Entities/Animator.hpp"
+#include "../../include/Entities/Animator/Animator.hpp"
 
 #include <iostream>
 #include <cmath>

@@ -2,8 +2,8 @@
 #define BUTTON_H
 
 #include "SFML/Graphics.hpp"
-#include "Entities/Motion.hpp"
-#include "Entities/Collision.hpp"
+#include "../Entities/Motion/Motion.hpp"
+#include "../Entities/Collision/Collision.hpp"
 
 namespace builder {
     class Button : public ShapeMotion, public ShapeCollision {

@@ -4,7 +4,7 @@
 #include "Motion.hpp"
 
 #include <iostream>
-#include "GameManager.hpp"
+#include "../../GameManager/GameManager.hpp"
 #include "utility/maths.hpp"
 
 namespace builder {

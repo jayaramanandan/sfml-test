@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "aliases.hpp"
-#include "Entity.hpp"
+#include "../Entity/Entity.hpp"
 #include "utility/Dictionary.hpp"
 
 namespace builder {

@@ -1,7 +1,7 @@
 #ifndef SCENE2_HPP
 #define SCENE2_HPP
 
-#include "Scene.hpp"
+#include "../../../include/Scene/Scene.hpp"
 #include "../Scene1/sprites/Player.hpp"
 
 class Scene2 : public builder::Scene {

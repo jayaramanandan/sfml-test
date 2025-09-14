@@ -1,15 +1,15 @@
-#include "Scene.hpp"
+#include "../include/Scene/Scene.hpp"
 
-#include "GameManager.hpp"
-#include "Entities/Animator.hpp"
+#include "../include/GameManager/GameManager.hpp"
+#include "../include/Entities/Animator/Animator.hpp"
 
 namespace builder {
-    SpritesArray& Scene::getSprites() {
-        return this->sprites;
+    EntityStore<Sprite>& Scene::getSpritesStore() {
+        return this->spritesStore;
     }
 
-    ShapesArray& Scene::getShapes() {
-        return this->uiElements;
+    EntityStore<sf::Shape>& Scene::getUiElementsStore() {
+        return this->uiElementsStore;
     }
 
     void Scene::initiateEntity(const SpritePtr& sprite_ptr) {
@@ -38,8 +38,8 @@ namespace builder {
         GameManager::getWindow()->draw(sprite_ptr->getDrawable());
     }
 
-    void Scene::initiateEntities() const {
-        for (const auto& sprite_ptr : this->sprites) {
+    void Scene::initiateEntities() {
+        for (const auto& sprite_ptr : this->spritesStore.getEntities()) {
             initiateEntity(sprite_ptr);
         }
 
@@ -49,8 +49,8 @@ namespace builder {
         }*/
     }
 
-    void Scene::renderEntities() const {
-        for (const auto& sprite_ptr : this->sprites) {
+    void Scene::renderEntities() {
+        for (const auto& sprite_ptr : this->spritesStore.getEntities()) {
             renderEntity(sprite_ptr);
         }
 

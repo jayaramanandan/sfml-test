@@ -1,5 +1,5 @@
 #include "Player.hpp"
-#include "GameManager.hpp"
+#include "GameManager/GameManager.hpp"
 
 Player::Player(const float x, const float y) : Sprite("assets/Bowl.png") {
     this->setPosition(x, y);

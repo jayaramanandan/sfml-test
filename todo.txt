@@ -1,4 +1,5 @@
-Rework collision events e.g. clicking
-create cache of all sprites that inherit collision class
 add uiElements rendering
-rework addEntity to take in a template
+remove entity function
+Rework collision events e.g. clicking
+have separate sprites arrays for each module
+have each listener as own module

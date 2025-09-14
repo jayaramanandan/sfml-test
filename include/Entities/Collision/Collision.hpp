@@ -2,15 +2,14 @@
 #define COLLISION_HPP
 
 #include "SFML/Graphics.hpp"
-#include "Entity.hpp"
+#include "../Entity/Entity.hpp"
 
 namespace builder {
     template <ValidType T>
     class Collision : public Entity<T>{
         public:
-            ~Collision() override = default;
 
-            virtual bool checkClicks();
+            ~Collision() override = default;
 
             bool isColliding(const SpritePtr& sprite_ptr);
     };

@@ -24,6 +24,11 @@ add_library(
         test/scenes/Scene1/Scene1.cpp
         lib/GameManager.cpp
         test/scenes/Scene2/Scene2.cpp
+        include/Scene/EntityStorage/EntityStore.hpp
+        include/Scene/EntityStorage/EntityStore.tpp
+        include/Entities/Listener/Listener.hpp
+        include/Entities/Listener/listeners/ClickListener.hpp
+        include/Entities/Listener/listeners/HoverListener.hpp
 )
 
 target_include_directories(
