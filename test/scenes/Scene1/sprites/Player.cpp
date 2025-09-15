@@ -14,7 +14,6 @@ sf::Sprite& Player::getDrawable() {
     return this->getSfSprite();
 }
 
-
 void Player::init() {
     const builder::Frames frames = {{1, 1, 14, 5}};
 
@@ -42,5 +41,4 @@ void Player::update() {
     if (this->player2 != nullptr && this->isColliding(this->player2)) {
         builder::GameManager::setCurrentScene(1);
     }
-
 }

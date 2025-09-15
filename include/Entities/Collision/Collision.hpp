@@ -6,7 +6,7 @@
 
 namespace builder {
     template <ValidType T>
-    class Collision : public Entity<T>{
+    class Collision : public Entity<T>, Updatable {
         public:
 
             ~Collision() override = default;

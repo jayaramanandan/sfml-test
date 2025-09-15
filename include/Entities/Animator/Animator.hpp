@@ -1,11 +1,13 @@
 #ifndef ANIMATOR_H
 #define ANIMATOR_H
+
 #include <array>
 #include <vector>
 #include <SFML/Graphics.hpp>
-
 #include "aliases.hpp"
 #include "../Entity/Entity.hpp"
+#include "Entities/Initialisable/Initialisable.hpp"
+#include "Entities/Updatable/Updatable.hpp"
 #include "utility/Dictionary.hpp"
 
 namespace builder {
@@ -14,7 +16,7 @@ namespace builder {
         sf::Clock clock;
     };
 
-    class Animator : Entity<sf::Sprite> {
+    class Animator : Entity<sf::Sprite>, Initialisable, Updatable {
         private:
             Dictionary<Animation> animations{};
         

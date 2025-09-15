@@ -12,15 +12,10 @@ namespace builder {
             virtual ~Entity() = default;
 
             virtual T& getDrawable() = 0;
-
-            virtual void init(); // called after window renders
-            virtual void update(); // where update code goes
     };
 
     using SpriteEntity = Entity<sf::Sprite>;
     using ShapeEntity = Entity<sf::Shape>;
 }
-
-#include "Entity.tpp"
 
 #endif

@@ -38,6 +38,10 @@ namespace builder {
         GameManager::getWindow()->draw(sprite_ptr->getDrawable());
     }
 
+    void Scene::renderEntityEvents(sf::Event& event) {
+        // this->spritesStore.listenerEntities.clickListeners();
+    }
+
     void Scene::initiateEntities() {
         for (const auto& sprite_ptr : this->spritesStore.getEntities()) {
             initiateEntity(sprite_ptr);
@@ -48,6 +52,8 @@ namespace builder {
             initiateEntity(shape_ptr);
         }*/
     }
+
+
 
     void Scene::renderEntities() {
         for (const auto& sprite_ptr : this->spritesStore.getEntities()) {

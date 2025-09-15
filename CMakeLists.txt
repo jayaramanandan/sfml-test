@@ -29,6 +29,10 @@ add_library(
         include/Entities/Listener/Listener.hpp
         include/Entities/Listener/listeners/ClickListener.hpp
         include/Entities/Listener/listeners/HoverListener.hpp
+        include/Entities/Listener/is_listener.hpp
+        include/Scene/EntityStorage/EntityDetails.hpp
+        include/Entities/Updatable/Updatable.hpp
+        include/Entities/Initialisable/Initialisable.hpp
 )
 
 target_include_directories(

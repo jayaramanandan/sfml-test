@@ -1,5 +1,3 @@
 add uiElements rendering
-remove entity function
 Rework collision events e.g. clicking
-have separate sprites arrays for each module
-have each listener as own module
+create Modules<Args...> class that takes template argument of all modules, so that Listener<Args...> is not used.

@@ -21,6 +21,7 @@ namespace builder {
             static void renderEntity(const SpritePtr& sprite_ptr);
 
             void initiateEntities();
+            void renderEntityEvents(sf::Event& event);//
             void renderEntities();
 
             template <class T>
