@@ -10,6 +10,9 @@ class Scene2 : public builder::Scene {
 
     public:
         Scene2();
+
+        void initiateEntities() override;
+        void updateEntities() override;
 };
 
 

@@ -2,12 +2,11 @@
 #define MOTION_H
 
 #include "../Entity/Entity.hpp"
-#include "Entities/Updatable/Updatable.hpp"
 #include "SFML/Graphics.hpp"
 
 namespace builder {
     template <ValidType T>
-    class Motion : public Entity<T>, Updatable {
+    class Motion : public Entity<T> {
         private:
             float multiplicationFactor = 1;
         

@@ -1,7 +1,7 @@
 #ifndef SCENE1_HPP
 #define SCENE1_HPP
 
-#include "../../../include/Scene/Scene.hpp"
+#include "Scene/Scene.hpp"
 #include "sprites/Player.hpp"
 
 class Scene1 : public builder::Scene {
@@ -11,6 +11,9 @@ class Scene1 : public builder::Scene {
 
     public:
         Scene1();
+
+        void initiateEntities() override;
+        void updateEntities() override;
 };
 
 #endif

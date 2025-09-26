@@ -1,31 +1,25 @@
 #ifndef SCENE_HPP
 #define SCENE_HPP
 
-#include "../aliases.hpp"
-#include "EntityStorage/EntityStore.hpp"
-#include "Entities/Sprite/Sprite.hpp"
+#include "SFML/Graphics.hpp"
 
 namespace builder {
     class Scene {
-        private:
-            EntityStore<Sprite> spritesStore;
-            EntityStore<sf::Shape> uiElementsStore;
-
         public:
             virtual ~Scene() = default;
 
-            [[nodiscard]] EntityStore<Sprite>& getSpritesStore();
-            [[nodiscard]] EntityStore<sf::Shape>& getUiElementsStore();
+            template <typename T>
+            void initiateEntity(T& entity);
 
-            static void initiateEntity(const SpritePtr& sprite_ptr);
-            static void renderEntity(const SpritePtr& sprite_ptr);
+            template <typename T>
+            void pollEntityEvents(T& entity, sf::Event& event);
 
-            void initiateEntities();
-            void renderEntityEvents(sf::Event& event);//
-            void renderEntities();
+            template <typename T>
+            void updateEntity(T& entity);
 
-            template <class T>
-            void addEntity(T& entity);
+            virtual void initiateEntities() {};
+            virtual void renderEntityEvents(sf::Event& event) {};
+            virtual void updateEntities() {};
 
     };
 }

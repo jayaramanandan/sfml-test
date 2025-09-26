@@ -5,9 +5,7 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include "aliases.hpp"
-#include "../Entity/Entity.hpp"
-#include "Entities/Initialisable/Initialisable.hpp"
-#include "Entities/Updatable/Updatable.hpp"
+#include "Entities/Entity/Entity.hpp"
 #include "utility/Dictionary.hpp"
 
 namespace builder {
@@ -16,7 +14,7 @@ namespace builder {
         sf::Clock clock;
     };
 
-    class Animator : Entity<sf::Sprite>, Initialisable, Updatable {
+    class Animator : Entity<sf::Sprite> {
         private:
             Dictionary<Animation> animations{};
         

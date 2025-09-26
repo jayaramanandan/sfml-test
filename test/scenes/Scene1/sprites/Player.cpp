@@ -1,11 +1,15 @@
 #include "Player.hpp"
 #include "GameManager/GameManager.hpp"
 
-Player::Player(const float x, const float y) : Sprite("assets/Bowl.png") {
+Player::Player(const float x, const float y) {
+    this->setTexturePath("assets/Bowl.png");
+
     this->setPosition(x, y);
 }
 
-Player::Player(const float x, const float y, Player& player2) : Sprite("assets/Bowl.png") {
+Player::Player(const float x, const float y, Player& player2) {
+    this->setTexturePath("assets/Bowl.png");
+
     this->setPosition(x, y);
     this->player2 = &player2;
 }

@@ -21,10 +21,10 @@ namespace builder {
     public:
         GameManager() = delete; // stops class being initiated (static class)
 
-        static WindowPtr& getWindow();
+        static WindowPtr getWindow();
         static void createWindow(const WindowDetails& details);
 
-        static ScenePtr& getCurrentScene();
+        static ScenePtr getCurrentScene();
         static void setCurrentScene(const int& currentSceneIndexValue);
 
         template<class T, typename... Args>

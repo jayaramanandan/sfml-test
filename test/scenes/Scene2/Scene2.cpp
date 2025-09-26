@@ -3,6 +3,12 @@
 
 Scene2::Scene2() :
 player(200, 200)
-{
-    this->addEntity<Player>(player);
+{}
+
+void Scene2::initiateEntities() {
+    this->initiateEntity(player);
+}
+
+void Scene2::updateEntities() {
+    this->updateEntity(player);
 }

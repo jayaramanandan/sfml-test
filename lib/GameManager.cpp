@@ -11,7 +11,7 @@ namespace builder {
     Dictionary<sf::Texture> GameManager::textures;
     bool GameManager::breakLoop = false;
 
-    WindowPtr& GameManager::getWindow() {
+    WindowPtr GameManager::getWindow() {
         return window;
     }
 
@@ -20,7 +20,7 @@ namespace builder {
         windowDetails = details;
     }
 
-    ScenePtr& GameManager::getCurrentScene() {
+    ScenePtr GameManager::getCurrentScene() {
         return scenes[currentSceneIndex];
     }
 
@@ -73,7 +73,7 @@ namespace builder {
 
             window->clear();
 
-            currentScene->renderEntities();
+            currentScene->updateEntities();
 
             window->display();
         }

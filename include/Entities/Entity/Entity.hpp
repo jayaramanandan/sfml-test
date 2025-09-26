@@ -12,6 +12,10 @@ namespace builder {
             virtual ~Entity() = default;
 
             virtual T& getDrawable() = 0;
+
+            virtual void init() {};
+            virtual void pollEvent(sf::Event& event) {};
+            virtual void update() {};
     };
 
     using SpriteEntity = Entity<sf::Sprite>;

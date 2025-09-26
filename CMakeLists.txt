@@ -20,19 +20,9 @@ add_library(
         lib/Entities/Animator.cpp
         lib/Entities/Sprite.cpp
         lib/UI/Button.cpp
-        lib/Scene.cpp
         test/scenes/Scene1/Scene1.cpp
         lib/GameManager.cpp
         test/scenes/Scene2/Scene2.cpp
-        include/Scene/EntityStorage/EntityStore.hpp
-        include/Scene/EntityStorage/EntityStore.tpp
-        include/Entities/Listener/Listener.hpp
-        include/Entities/Listener/listeners/ClickListener.hpp
-        include/Entities/Listener/listeners/HoverListener.hpp
-        include/Entities/Listener/is_listener.hpp
-        include/Scene/EntityStorage/EntityDetails.hpp
-        include/Entities/Updatable/Updatable.hpp
-        include/Entities/Initialisable/Initialisable.hpp
 )
 
 target_include_directories(

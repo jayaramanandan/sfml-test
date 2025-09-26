@@ -12,12 +12,10 @@ namespace builder {
             sf::Sprite sprite;
 
         public:
-            explicit Sprite(const std::string& textureFilePath);
-
             sf::Sprite& getSfSprite();
 
             // customisable by user
-            std::string getTexturePath() const;
+            std::string& getTexturePath();
             
             void setTexturePath(const std::string& textureFilePath);
     };

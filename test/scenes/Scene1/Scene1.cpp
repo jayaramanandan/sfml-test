@@ -4,8 +4,15 @@
 
 Scene1::Scene1() :
 player1(200, 200),
-player2(200, 400, player1)
-{
-    this->addEntity(player1);
-    this->addEntity(player2);
+player2(200, 300, player1)
+{}
+
+void Scene1::initiateEntities() {
+    this->initiateEntity(player1);
+    this->initiateEntity(player2);
+}
+
+void Scene1::updateEntities() {
+    this->updateEntity(player1);
+    this->updateEntity(player2);
 }

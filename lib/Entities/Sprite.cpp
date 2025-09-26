@@ -1,11 +1,7 @@
 #include "../../include/Entities/Sprite/Sprite.hpp"
 
 namespace builder {
-    Sprite::Sprite(const std::string& textureFilePath) {
-        this->texturePath = textureFilePath;
-    }
-
-    std::string Sprite::getTexturePath() const {
+    std::string& Sprite::getTexturePath() {
         return this->texturePath;
     }
 
