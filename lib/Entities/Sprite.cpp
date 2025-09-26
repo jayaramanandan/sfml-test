@@ -1,4 +1,4 @@
-#include "../../include/Entities/Sprite/Sprite.hpp"
+#include "Sprite/Sprite.hpp"
 
 namespace builder {
     std::string& Sprite::getTexturePath() {

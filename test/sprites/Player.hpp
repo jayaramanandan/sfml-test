@@ -2,11 +2,11 @@
 #define PLAYER_H
 
 #include "aliases.hpp"
-#include "Entities/Modules.hpp"
-#include "Entities/Sprite/Sprite.hpp"
-#include "Entities/Animator/Animator.hpp"
-#include "Entities/Motion/Motion.hpp"
-#include "Entities/Collision/Collision.hpp"
+#include "Modules/Modules.hpp"
+#include "Sprite/Sprite.hpp"
+#include "Modules/Animator/Animator.hpp"
+#include "Modules/Motion/Motion.hpp"
+#include "Modules/Collision/Collision.hpp"
 
 
 class Player :
@@ -18,12 +18,12 @@ public builder::Modules<
 >
 {
     private:
-        builder::SpritePtr player2{};
+        builder::SpritePtr player2 = nullptr;
         bool moving = false;
 
     public:
         Player(float x, float y);
-        Player(float x, float y, Player& player2);
+        Player(float x, float y, builder::SpritePtr player2);
 
         sf::Sprite& getDrawable() override;
 

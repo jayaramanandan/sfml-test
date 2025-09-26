@@ -64,9 +64,9 @@ namespace builder {
         currentScene->initiateEntities();
 
         while (!breakLoop && window->isOpen()) {
-            Event event{};
+            sf::Event event{};
             while (window->pollEvent(event)) {
-                if (event.type == Event::Closed) window->close();
+                if (event.type == sf::Event::Closed) window->close();
 
                 currentScene->renderEntityEvents(event);
             }

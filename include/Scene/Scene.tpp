@@ -4,8 +4,8 @@
 #include "Scene.hpp"
 
 #include <type_traits>
-#include "Entities/Animator/Animator.hpp"
-#include "Entities/Sprite/Sprite.hpp"
+#include "Modules/Animator/Animator.hpp"
+#include "Sprite/Sprite.hpp"
 #include "GameManager/GameManager.hpp"
 
 namespace builder {

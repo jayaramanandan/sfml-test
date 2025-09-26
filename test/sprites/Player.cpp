@@ -1,17 +1,19 @@
 #include "Player.hpp"
 #include "GameManager/GameManager.hpp"
 
+#include <iostream>
+
 Player::Player(const float x, const float y) {
     this->setTexturePath("assets/Bowl.png");
 
     this->setPosition(x, y);
 }
 
-Player::Player(const float x, const float y, Player& player2) {
+Player::Player(const float x, const float y, const builder::SpritePtr player2) {
     this->setTexturePath("assets/Bowl.png");
 
     this->setPosition(x, y);
-    this->player2 = &player2;
+    this->player2 = player2;
 }
 
 sf::Sprite& Player::getDrawable() {

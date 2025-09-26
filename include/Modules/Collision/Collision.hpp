@@ -1,6 +1,7 @@
 #ifndef COLLISION_HPP
 #define COLLISION_HPP
 
+#include "aliases.hpp"
 #include "SFML/Graphics.hpp"
 #include "../Entity/Entity.hpp"
 
@@ -11,7 +12,7 @@ namespace builder {
 
             ~Collision() override = default;
 
-            bool isColliding(const SpritePtr& sprite_ptr);
+            bool isColliding(SpritePtr sprite_ptr);
     };
 
     using SpriteCollision = Collision<sf::Sprite>;

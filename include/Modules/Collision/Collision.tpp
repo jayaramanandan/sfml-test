@@ -5,7 +5,7 @@
 
 namespace builder {
     template<ValidType T>
-    bool Collision<T>::isColliding(const SpritePtr& sprite_ptr) {
+    bool Collision<T>::isColliding(const SpritePtr sprite_ptr) {
         return this->getDrawable().getGlobalBounds().intersects(
             sprite_ptr->getDrawable().getGlobalBounds()
         );

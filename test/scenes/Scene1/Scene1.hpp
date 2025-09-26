@@ -2,7 +2,7 @@
 #define SCENE1_HPP
 
 #include "Scene/Scene.hpp"
-#include "sprites/Player.hpp"
+#include "../../sprites/Player.hpp"
 
 class Scene1 : public builder::Scene {
     private:
