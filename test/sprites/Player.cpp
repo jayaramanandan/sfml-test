@@ -1,8 +1,6 @@
 #include "Player.hpp"
 #include "GameManager/GameManager.hpp"
 
-#include <iostream>
-
 Player::Player(const float x, const float y) {
     this->setTexturePath("assets/Bowl.png");
 

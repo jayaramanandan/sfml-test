@@ -16,11 +16,12 @@ set(CMAKE_LINKER_FLAGS "${CMAKE_LINKER_FLAGS} -fsanitize=address")
 
 add_library(
         SfmlWrapper STATIC
-        test/sprites/Player.cpp
-        lib/Entities/Animator.cpp
-        lib/Entities/Sprite.cpp
+        lib/Modules/Animator.cpp
+        lib/Modules/Sprite.cpp
         test/scenes/Scene1/Scene1.cpp
         lib/GameManager.cpp
+        lib/UI/Button.cpp
+        test/sprites/Player.cpp
         test/scenes/Scene2/Scene2.cpp
 )
 
