@@ -15,9 +15,7 @@ namespace builder {
 
             sf::RectangleShape& getDrawable() override;
 
-            sf::Color getFillColour() const;
-            void setFillColour(const sf::Color& colour);
-
+            void pollEvent(sf::Event& event) override;
             void update() override;
 
             virtual void onHover();

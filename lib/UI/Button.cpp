@@ -7,15 +7,32 @@ sf::RectangleShape& builder::Button::getDrawable() {
     return this->buttonRect;
 }
 
-sf::Color builder::Button::getFillColour() const {
-    return this->buttonRect.getFillColor();
+void builder::Button::pollEvent(sf::Event& event) {
+    if (
+        const sf::Vector2i mousePos = sf::Mouse::getPosition(*GameManager::getWindow());
+        event.type == sf::Event::MouseButtonPressed &&
+        event.mouseButton.button == sf::Mouse::Button::Left &&
+        this->getDrawable().getGlobalBounds().contains(
+            static_cast<float>(mousePos.x),
+            static_cast<float>(mousePos.y)
+        )
+    ) {
+        this->onClick();
+    }
 }
 
-void builder::Button::setFillColour(const sf::Color& colour) {
-    this->buttonRect.setFillColor(colour);
-}
 
 void builder::Button::update() {
+    if (const sf::Vector2i mousePos = sf::Mouse::getPosition(*GameManager::getWindow());
+        this->getDrawable().getGlobalBounds().contains(
+            static_cast<float>(mousePos.x),
+            static_cast<float>(mousePos.y)
+        )
+    ) {
+        this->onHover();
+
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) this->onMouseDown();
+    }
 }
 
 void builder::Button::onHover() {}

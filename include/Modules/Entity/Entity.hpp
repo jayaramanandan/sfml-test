@@ -13,9 +13,9 @@ namespace builder {
 
             virtual T& getDrawable() = 0;
 
-            virtual void init() {};
-            virtual void pollEvent(sf::Event& event) {};
-            virtual void update() {};
+            virtual void init() = 0;
+            virtual void pollEvent(sf::Event& event) = 0;
+            virtual void update() = 0;
     };
 
     using SpriteEntity = Entity<sf::Sprite>;

@@ -19,10 +19,12 @@ add_library(
         lib/Modules/Animator.cpp
         lib/Modules/Sprite.cpp
         test/scenes/Scene1/Scene1.cpp
-        lib/GameManager.cpp
+        lib/GameManager/GameManager.cpp
         lib/UI/Button.cpp
         test/sprites/Player.cpp
         test/scenes/Scene2/Scene2.cpp
+        test/sprites/StartButton.cpp
+        test/sprites/StartButton.hpp
 )
 
 target_include_directories(
