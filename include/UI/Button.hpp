@@ -13,6 +13,8 @@ namespace builder {
         public:
             Button(const float& width, const float& height);
 
+            bool isTouchingMouse();
+
             sf::RectangleShape& getDrawable() override;
 
             void pollEvent(sf::Event& event) override;
