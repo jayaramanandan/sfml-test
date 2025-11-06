@@ -12,7 +12,6 @@ bool builder::Button::isTouchingMouse() {
     );
 }
 
-
 sf::RectangleShape& builder::Button::getDrawable() {
     return this->buttonRect;
 }
@@ -26,7 +25,6 @@ void builder::Button::pollEvent(sf::Event& event) {
         this->onClick();
     }
 }
-
 
 void builder::Button::update() {
     if (this->isTouchingMouse()) {

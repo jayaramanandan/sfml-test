@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.31)
-project(SfmlWrapperApp VERSION 1.0)
+project(SfmlWrapperApp VERSION 0.1)
 include(FetchContent)
 set(BUILD_SHARED_LIBS OFF)
 FetchContent_Declare(
