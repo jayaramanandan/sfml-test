@@ -15,11 +15,9 @@ namespace builder {
 
             sf::RectangleShape& getDrawable() override;
 
-            sf::Color getFillColour() const;
-            void setFillColour(const sf::Color& colour);
-
             void update() override;
 
+            
             virtual void onHover();
             virtual void onClick();
             virtual void onMouseDown();
