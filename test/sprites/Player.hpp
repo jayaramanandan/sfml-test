@@ -17,17 +17,13 @@ public builder::Modules<
     builder::SpriteCollision
 >
 {
-    private:
-        builder::SpritePtr player2 = nullptr;
-        bool moving = false;
-
     public:
         Player(float x, float y);
-        Player(float x, float y, builder::SpritePtr player2);
 
         sf::Sprite& getDrawable() override;
 
         void init() override;
+        void pollEvent(sf::Event &event) override {};
         void update() override;
 };
 

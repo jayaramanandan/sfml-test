@@ -9,7 +9,6 @@ namespace builder {
     template <ValidType T>
     class Collision : public Entity<T> {
         public:
-
             ~Collision() override = default;
 
             bool isColliding(SpritePtr sprite_ptr);

@@ -7,13 +7,6 @@ Player::Player(const float x, const float y) {
     this->setPosition(x, y);
 }
 
-Player::Player(const float x, const float y, const builder::SpritePtr player2) {
-    this->setTexturePath("assets/Bowl.png");
-
-    this->setPosition(x, y);
-    this->player2 = player2;
-}
-
 sf::Sprite& Player::getDrawable() {
     return this->getSfSprite();
 }
@@ -40,9 +33,5 @@ void Player::update() {
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
         this->moveInCurrentDirection(-1);
-    }
-
-    if (this->player2 != nullptr && this->isColliding(this->player2)) {
-        builder::GameManager::setCurrentScene(1);
     }
 }

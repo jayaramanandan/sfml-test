@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.31)
-project(SfmlWrapperApp VERSION 1.0)
+project(SfmlWrapperApp VERSION 0.1)
 include(FetchContent)
 set(BUILD_SHARED_LIBS OFF)
 FetchContent_Declare(
@@ -19,10 +19,12 @@ add_library(
         lib/Modules/Animator.cpp
         lib/Modules/Sprite.cpp
         test/scenes/Scene1/Scene1.cpp
-        lib/GameManager.cpp
+        lib/GameManager/GameManager.cpp
         lib/UI/Button.cpp
         test/sprites/Player.cpp
         test/scenes/Scene2/Scene2.cpp
+        test/sprites/StartButton.cpp
+        test/sprites/StartButton.hpp
 )
 
 target_include_directories(
